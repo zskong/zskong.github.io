@@ -65,11 +65,11 @@ a:hover {
 }
 
 #layout-menu a.current:link, #layout-menu a.current:visited {
-	color: #022b6d;
+	color: #AA7F8C;
 	border-bottom: 1px gray solid;
 }
 #layout-menu a:link, #layout-menu a:visited, #layout-menu a:hover {
-	color: #527bbd;
+	color: #AA7F8C;
 	text-decoration: none;
 }
 #layout-menu a:hover {
@@ -111,7 +111,8 @@ strong {
 }
 
 h1, h2, h3 {
-	color: #AA7F8C; <!--这里改的颜色是mepro等-->
+	color: #AA7F8C; 
+	/* 这里改的颜色是mepro, google scholar et al */
 	margin-top: 0.7em;
 	margin-bottom: 0.3em;
     padding-top: 0.5em;
