@@ -1,7 +1,7 @@
 [
   {
     "title": "Disentangled Contrastive Multi-view Clustering via Semantic Relevance Invariance",
-    "authors": "Pengyuan Li, Dongxia Chang, Yiming Wang, <strong>Zisen Kong</strong>, Linhua Kong, Yao Zhao",
+    "authors": "Pengyuan Li, Dongxia Chang#, Yiming Wang, <strong>Zisen Kong</strong>, Linhua Kong, Yao Zhao",
     "venue": "IEEE Transactions on Knowledge and Data Engineering",
     "year": "2026",
     "type": "journal",
@@ -14,7 +14,7 @@
   },
   {
     "title": "Local geometry-enhanced anchor learning for multi-view clustering",
-    "authors": "<strong>Zisen Kong</strong>, Zhiqiang Fu, Dongxia Chang, Yiming Wang, Pengyuan Li, Yao Zhao",
+    "authors": "<strong>Zisen Kong</strong>, Zhiqiang Fu, Dongxia Chang#, Yiming Wang, Pengyuan Li, Yao Zhao",
     "venue": "Neurocomputing",
     "year": "2026",
     "type": "journal",
@@ -27,7 +27,7 @@
   },
   {
     "title": "Dual-space co-training for large-scale multi-view clustering",
-    "authors": "<strong>Zisen Kong</strong>, Zhiqiang Fu, Dongxia Chang, Yiming Wang, Yao Zhao",
+    "authors": "<strong>Zisen Kong</strong>, Zhiqiang Fu, Dongxia Chang#, Yiming Wang, Yao Zhao",
     "venue": "Pattern Recognition",
     "year": "2025",
     "type": "journal",
@@ -40,7 +40,7 @@
   },
   {
     "title": "Association and Consolidation: Evolutionary Memory-Enhanced Incremental Multi-View Clustering",
-    "authors": "<strong>Zisen Kong</strong>, Bo Zhong, Pengyuan Li, Dongxia Chang, Yiming Wang, Yongyong Chen",
+    "authors": "<strong>Zisen Kong</strong>, Bo Zhong, Pengyuan Li, Dongxia Chang#, Yiming Wang, Yongyong Chen",
     "venue": "arxiv",
     "year": "2026",
     "type": "preprint",
