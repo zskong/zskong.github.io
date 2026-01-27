@@ -145,17 +145,29 @@ async function loadNews() {
 function renderNewsItems(newsData, containerId) {
     const container = document.getElementById(containerId);
     if (!container) return;
+
     container.innerHTML = newsData.map(item => `
-        <div class="news-item flex gap-4 border-b border-dashed border-neutral-100 pb-3 mb-3 last:border-0">
-            <span class="news-date font-mono text-accent text-sm whitespace-nowrap">${item.date}</span>
-            <div class="news-content text-sm text-neutral-700">
-                🎉 ${item.content}
-                ${(item.links || []).map(l => `<a href="${l.url}" target="_blank" class="ml-2 text-accent hover:underline decoration-accent/30">[${l.text}]</a>`).join('')}
+        <div class="news-item relative group">
+            <div class="absolute -left-[35px] top-1.5 w-3.5 h-3.5 rounded-full border-2 border-white bg-neutral-200 group-hover:bg-accent group-hover:scale-125 transition-all duration-300 shadow-sm"></div>
+            
+            <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6">
+                <span class="news-date font-mono text-accent font-bold text-sm whitespace-nowrap min-w-[100px]">
+                    ${item.date}
+                </span>
+                
+                <div class="news-content text-primary text-sm leading-relaxed">
+                    <span class="mr-1">🎉</span> ${item.content}
+                    
+                    ${(item.links || []).map(l => `
+                        <a href="${l.url}" target="_blank" class="ml-2 text-xs font-bold text-accent hover:text-primary transition-colors underline decoration-accent/30 underline-offset-4">
+                            [${l.text}]
+                        </a>
+                    `).join('')}
+                </div>
             </div>
         </div>
     `).join('');
 }
-
 /**
  * 加载荣誉逻辑
  */
