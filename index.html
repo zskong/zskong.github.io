@@ -1,175 +1,328 @@
-
-<html>
-
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <!-- <link rel="shortcut icon" href="paper_dragon.ico"> -->
-    <title>Zisen Kong's Homepage </title>
-    <base href="https://zskong.github.io/index.html">
-    
-    
-    <script type="text/javascript" src="//ra.revolvermaps.com/0/0/8.js?i=0gh03rwju0o&amp;m=0&amp;s=170&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;v0=80" async="async"></script>
-    </head>
-
-    
-<body>
-<table summary="Table for page layout." id="tlayout">
-<tr valign="top">
-<h1 style="padding-left: 0.5em">Zisen Kong</h1><hr>
-<td id="layout-menu">
-    <div class="menu-item"><a href="https://zskong.github.io/index.html">Home</a></div>
-    <div class="menu-item"><a href="https://zskong.github.io/preprint.html">Preprint</a></div>
-    <div class="menu-item"><a href="https://zskong.github.io/education.html">Education</a></div>
-    <div class="menu-item"><a href="https://zskong.github.io/publications.html">Publications</a></div>
-    <div class="menu-item"><a href="https://zskong.github.io/projects.html">Projects</a></div>
-    <div class="menu-item"><a href="https://zskong.github.io/services.html">Services</a></div>
-    <div class="menu-item"><a href="https://zskong.github.io/award.html">Awards</a></div>
-</td>
-<td id="layout-content">
-
-    <h1 style="margin-top: 0em">Home</h1><br>
-
-    <table class="imgtable"><tr valign="center">
-        <td><img src="白底.jpg" alt="Zisen Kong" border="0" width=160/></td>
-        <td align="left">
-            <br>
-            <p><span style="font-size: 110%"><b>Zisen Kong</b></span></p>
-            <p>
-                P.h.D Candidate<br>
-                <br>
-                <a href="http://mepro.bjtu.edu.cn/" target="_blank">Mepro</a><br>
-                <a href="https://www.bjtu.edu.cn/" target="_blank">BJTU</a><br>
-                <br>
-                Location: Shangyuan Village No. 3 , Haidian District, beijing, Beijing, China<br>
-                
-            </p>
-                            
-            <p>              
-                Email: zskong@bjtu.edu.cn (prior); &nbsp;&nbsp;&nbsp;&nbsp; 919301963@qq.com<br>
-                [
-                <a href="https://scholar.google.com.sg/citations?hl=zh-CN&user=PhixFF0AAAAJ" target="_blank">Google Scholar</a>
-                ][
-                <a href="https://github.com/zskong" target="_blank">GitHub</a>
-                ][
-                <a href="https://www.researchgate.net/profile/Zisen-Kong" target="_blank">ResearchGate</a>
-                ][
-                <a href="https://orcid.org/0000-0002-0954-3330" target="_blank">ORCID</a>
-                ]
-            </p>
-        </td>
-    </table>
-    <p>I'm a researcher of Computer Vision and Machine Learning, including multi-view clustering and deep clustering. Currently, I focus on the following research topics:  </p>
-    <ul>
-        <li>
-            
-            <p>low-rank/sparse subspace clustering</p>
-        </li>
-        <li>
-            
-            <p>Large-scale clustering/anchor learning</p>
-        </li>
-        <li>
-            
-            <p>Multi-view clustering and its applications(incomplete/views-aligned)</p>
-        </li>
-        <li>
-            
-            <p>Deep subspace clustering (DSC)  / Deep graph network (DGN) </p>
-        </li>
-        <li>
-            
-            <p>metric learning</p>
-        </li>
-    </ul>
-    <br>
-
-    
-    <h1 style="margin-top: 0em">Representative Papers</h1><br>
-    <table>
-    <tbody>
-	<tr>
-    	<td><img src="/Framework/23neurocomputing.jpg" height="100"></td>
-	    <td>
-		projection-preserving block-diagonal low-rank representation for subspace clustering.<br>
-		<b>Kong, Z.</b>, Chang D., Fu, Z., Wang, J., Wang, Y., Zhao, Y.<br>
-		In neurocomputing. [<a href="https://www.sciencedirect.com/science/article/pii/S0925231223000607" target="_blank">Paper</a>]
-		[<a href="https://github.com/zskong/PBDIR" target="_blank">Code</a>]
-	    </td>
-	</tr> 
-    </tbody></table>
-
-    
-    <h1 style="margin-top: 0em">News</h1><br>
-
-        <div>
-         <ul> 
-	    <li><p>01/2023, One paper is accepted in neurocomputing(CCF-C).  </p></li>
-        </ul>
-    </div>
-	
-<!--看板娘 - 黑猫-->
-    <script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Academic Homepage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      L2Dwidget.init({
-        "model": {
-          jsonPath: "https://unpkg.com/live2d-widget-model-hijiki/assets/hijiki.model.json", <!--这里改模型，前面后面都要改-->
-          "scale": 1
-        },
-        "display": {
-          "position": "left", <!--设置看板娘的上下左右位置-->
-          "width": 200,
-          "height": 400,
-          "hOffset": 0,
-          "vOffset": 0
-        },
-        "mobile": {
-          "show": true,
-          "scale": 0.5
-        },
-        "react": {
-          "opacityDefault": 0.7, <!--设置透明度-->
-          "opacityOnHover": 0.2
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              background: '#fefffe',
+              foreground: '#0f172a',
+              primary: '#1e293b',
+              accent: '#d4a562',
+              'accent-dark': '#b88a4d',
+              muted: '#64748b',
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              serif: ['Crimson Text', 'serif'],
+            }
+          }
         }
-      });
-      window.onload = function() {
-        $("#live2dcanvas").attr("style", "position: fixed; opacity: 0.7; left: 70px; bottom: 0px; z-index: 1; pointer-events: none;")
       }
     </script>
+</head>
+<body class="bg-background text-foreground antialiased font-sans">
+    <!-- Top Navigation -->
+    <nav class="top-nav glass fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 lg:h-20">
+                <!-- Logo/Name -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-xl lg:text-2xl font-serif font-semibold text-primary hover:text-accent transition-colors duration-200">
+                        Your Name
+                    </a>
+                </div>
 
-<!--白猫咪-->
-<script src=" https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>
-<script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.0.min.js"></script>
-<script>
-L2Dwidget.init({
-"model": {
-jsonPath: " https://unpkg.com/live2d-widget-model-tororo@1.0.5/assets/tororo.model.json" ,
-"scale": 1
-},
-"display": {
-"position": "right",
-"width": 200,
-"height": 400,
-"hOffset": -20,
-"vOffset": -20
-},
-"mobile": {
-"show": true,
-"scale": 0.5
-},
-"react": {
-"opacityDefault": 1,
-"opacityOnHover": 1
-}
-});
-</script>
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:block">
+                    <div class="ml-10 flex items-center space-x-8">
+                        <ul class="nav-links flex space-x-8">
+                            <li><a href="#homepage" class="nav-item">Homepage</a></li>
+                            <li><a href="#about" class="nav-item">About Me</a></li>
+                            <li><a href="#latest-news" class="nav-item">News</a></li>
+                            <li><a href="#publications" class="nav-item">Publications</a></li>
+                            <li><a href="#honors" class="nav-item">Honors</a></li>
+                            <li><a href="#services" class="nav-item">Service</a></li>
+                            <li><a href="#educations" class="nav-item">Education</a></li>
+                            <li><a href="#contact" class="nav-item">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
 
-<script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=200&t=n&d=h9PiWYxVKVexNJY8aUu4GPu3XmF-W5_pVBOl9pSO1nY"></script>	
-	
-</td>    
-</tr>    
-</tbody>    
-</table>    
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button class="mobile-menu-btn p-2 rounded-md text-neutral-600 hover:text-primary">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="mobile-menu hidden lg:hidden absolute top-16 left-0 w-full bg-white/95 backdrop-blur-md border-b border-neutral-200 shadow-lg" id="mobile-menu">
+                <ul class="flex flex-col py-4 px-4 space-y-4">
+                    <li><a href="#homepage" class="mobile-nav-item block text-neutral-600 hover:text-primary font-medium">Homepage</a></li>
+                    <li><a href="#about" class="mobile-nav-item block text-neutral-600 hover:text-primary font-medium">About Me</a></li>
+                    <li><a href="#latest-news" class="mobile-nav-item block text-neutral-600 hover:text-primary font-medium">News</a></li>
+                    <li><a href="#publications" class="mobile-nav-item block text-neutral-600 hover:text-primary font-medium">Publications</a></li>
+                    <li><a href="#honors" class="mobile-nav-item block text-neutral-600 hover:text-primary font-medium">Honors</a></li>
+                    <li><a href="#services" class="mobile-nav-item block text-neutral-600 hover:text-primary font-medium">Service</a></li>
+                    <li><a href="#educations" class="mobile-nav-item block text-neutral-600 hover:text-primary font-medium">Education</a></li>
+                    <li><a href="#contact" class="mobile-nav-item block text-neutral-600 hover:text-primary font-medium">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Grid -->
+    <main class="min-h-screen pt-20 lg:pt-28 pb-12">
+        <div class="w-full max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid-layout">
+                
+                <!-- Left Column - Profile (Sticky) -->
+                <div class="profile-column">
+                    <div class="profile-card sticky top-24">
+                        <!-- Profile Image -->
+                        <div class="profile-image-container mb-6 mx-auto max-w-[180px]">
+                            <img src="assets/profile.jpg" id="profile-img" alt="Your Name" class="w-full h-auto rounded-xl shadow-sm bg-gray-200">
+                        </div>
+
+                        <!-- Name and Title -->
+                        <div class="text-center mb-6">
+                            <h1 class="text-3xl font-serif font-bold text-primary mb-2">Your Name | 您的名字</h1>
+                            <p class="text-lg text-accent font-medium mb-1">Your Role / Position</p>
+                            <p class="text-neutral-600 mb-2">Your University / Organization</p>
+                        </div>
+
+                        <!-- Contact Links -->
+                        <div class="social-links flex flex-wrap justify-center gap-3 mb-6">
+                            <a href="mailto:your.email@example.com" class="social-btn" title="Email"><i class="fas fa-envelope"></i></a>
+                            <a href="#" target="_blank" class="social-btn" title="CV"><i class="fas fa-file-pdf"></i></a>
+                            <a href="#" target="_blank" class="social-btn" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                            <a href="#" target="_blank" class="social-btn" title="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="#" target="_blank" class="social-btn" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
+                            <a href="#" target="_blank" class="social-btn" title="Blog"><i class="fas fa-blog"></i></a>
+                        </div>
+                        
+                        <!-- Research Interests -->
+                         <div class="research-interests-card bg-neutral-100 rounded-xl p-5 mb-6">
+                            <h3 class="font-serif font-bold text-lg text-primary mb-4 pb-2 border-b border-neutral-200 flex items-center">
+                                <i class="fas fa-lightbulb text-accent mr-2 text-base"></i> Research Interests
+                            </h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-center text-neutral-700 hover:text-primary transition-colors">
+                                    <i class="fas fa-star text-accent/80 mr-3 w-5 text-center text-sm"></i>
+                                    <span class="text-sm font-medium">Interest 1</span>
+                                </li>
+                                <li class="flex items-center text-neutral-700 hover:text-primary transition-colors">
+                                    <i class="fas fa-star text-accent/80 mr-3 w-5 text-center text-sm"></i>
+                                    <span class="text-sm font-medium">Interest 2</span>
+                                </li>
+                                <li class="flex items-center text-neutral-700 hover:text-primary transition-colors">
+                                    <i class="fas fa-star text-accent/80 mr-3 w-5 text-center text-sm"></i>
+                                    <span class="text-sm font-medium">Interest 3</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Right Column - Content -->
+                <div class="content-column space-y-12">
+                    
+                    <!-- About Section -->
+                    <section id="homepage" class="scroll-mt-24">
+                        <span id="about"></span> <!-- Anchor for About link -->
+                        <div class="section-header mb-6">
+                            <h2 class="text-3xl font-serif font-bold text-primary">About Me</h2>
+                        </div>
+                        <div class="prose max-w-none text-neutral-600 text-justify formal-font">
+                            <p class="mb-4">This is your biography section. You can introduce your background, education, and current research focus here. For example: "I received my B.S. degree from [University Name] in [Year]. Currently, I am a [Position] at [University Name], advised by [Advisor Name]. My research focuses on [Topic 1] and [Topic 2]."</p>
+                            
+                            <div class="highlight-box bg-accent/10 border-l-4 border-accent p-4 rounded-r-lg text-left font-sans">
+                                <p><strong><i class="fas fa-lightbulb text-accent mr-2"></i>I am actively seeking collaborators/students.</strong> If you are interested in my work, please feel free to contact me via email: <a href="mailto:your.email@example.com" class="link-highlight">your.email@example.com</a>.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Research Thrust Section -->
+                    <section id="research-thrust" class="scroll-mt-24">
+                        <div class="section-header mb-6">
+                            <h2 class="text-3xl font-serif font-bold text-primary">🚀 Research Thrust</h2>
+                        </div>
+                        <div class="prose max-w-none text-neutral-600 text-justify formal-font">
+                            <blockquote class="pl-4 border-l-4 border-accent/30 italic text-neutral-600 bg-neutral-50/50 p-4 rounded-r-lg mb-6">
+                                "Your research vision statement goes here. Describe your high-level goals and the impact you hope to achieve with your work."
+                            </blockquote>
+                            
+                            <p class="mb-8">Describe your research methodology or framework here. You can highlight key concepts using <b>bold text</b> or <span class="text-primary italic border-b border-primary/30 pb-0.5">styled spans</span> to draw attention to important terms.</p>
+
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <!-- Thrust 1 -->
+                                <div class="thrust-card bg-neutral-50 rounded-xl p-5 border border-neutral-100 hover:shadow-md transition-all duration-300 group flex flex-col h-full">
+                                    <h3 class="font-serif font-bold text-lg text-primary mb-4 flex items-center group-hover:text-accent transition-colors">
+                                        <i class="fas fa-project-diagram text-accent mr-2 group-hover:scale-110 transition-transform"></i> Research Direction A
+                                    </h3>
+                                    <p class="text-sm leading-relaxed text-justify text-neutral-600 flex-grow">
+                                        Description of your first research direction. Explain the challenges, your approach, and the significance of this area.
+                                    </p>
+                                </div>
+
+                                <!-- Thrust 2 -->
+                                <div class="thrust-card bg-neutral-50 rounded-xl p-5 border border-neutral-100 hover:shadow-md transition-all duration-300 group flex flex-col h-full">
+                                    <h3 class="font-serif font-bold text-lg text-primary mb-4 flex items-center group-hover:text-accent transition-colors">
+                                        <i class="fas fa-brain text-accent mr-2 group-hover:scale-110 transition-transform"></i> Research Direction B
+                                    </h3>
+                                    <p class="text-sm leading-relaxed text-justify text-neutral-600 flex-grow">
+                                        Description of your second research direction. Highlight how it complements the first one or addresses a different aspect of the problem.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- News Section -->
+                    <section id="latest-news" class="scroll-mt-24">
+                        <div class="section-header mb-6 flex justify-between items-center">
+                            <h2 class="text-3xl font-serif font-bold text-primary">🔥 News</h2>
+                            <a href="pages/all-news.html" class="text-sm font-medium text-accent hover:text-accent-dark transition-colors">View All <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                        <div id="news-container" class="news-list space-y-4">
+                            <!-- Dynamic Content loaded from data/news.json -->
+                        </div>
+                    </section>
+
+                    <!-- Publications Section -->
+                    <section id="publications" class="scroll-mt-24">
+                        <div class="section-header mb-6">
+                            <h2 class="text-3xl font-serif font-bold text-primary">📄 Publications</h2>
+                            <p class="text-sm text-neutral-500 mt-1">(* means equal contribution)</p>
+                        </div>
+                        
+                        <div class="publications-list space-y-6">
+                            <!-- Dynamic Content loaded from data/publications.json -->
+                        </div>
+                    </section>
+
+                    <!-- Honors Section -->
+                    <section id="honors" class="scroll-mt-24">
+                        <div class="section-header mb-6 flex justify-between items-center">
+                            <h2 class="text-3xl font-serif font-bold text-primary">🏆 Honors & Awards</h2>
+                            <a href="pages/all-honors.html" class="text-sm font-medium text-accent hover:text-accent-dark transition-colors">View All <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                        <div id="honors-container" class="honors-list space-y-4">
+                            <!-- Dynamic Content loaded from data/honors.json -->
+                        </div>
+                    </section>
+
+                    <!-- Academic Service Section -->
+                    <section id="services" class="scroll-mt-24">
+                        <div class="section-header mb-6">
+                            <h2 class="text-3xl font-serif font-bold text-primary">💼 Academic Service</h2>
+                        </div>
+                        <div class="timeline space-y-6">
+                            <!-- Reviewer -->
+                            <div class="timeline-item flex gap-4">
+                                <div class="school-logo-container w-16 h-16 flex-shrink-0 bg-white rounded-lg shadow-sm p-2 flex items-center justify-center border border-neutral-100 text-2xl text-accent">
+                                    <i class="fas fa-edit"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h3 class="font-semibold text-primary">Conference Reviewer</h3>
+                                    <p class="text-sm text-accent font-medium">CVPR, ICCV, ECCV, NeurIPS, ICLR</p>
+                                    <p class="text-sm text-neutral-600 mt-1 leading-relaxed">
+                                        Served as a program committee member and reviewer for top-tier computer vision and machine learning conferences since 2023.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- Teaching Assistant -->
+                            <div class="timeline-item flex gap-4">
+                                <div class="school-logo-container w-16 h-16 flex-shrink-0 bg-white rounded-lg shadow-sm p-2 flex items-center justify-center border border-neutral-100 text-2xl text-accent">
+                                    <i class="fas fa-chalkboard-teacher"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h3 class="font-semibold text-primary">Teaching Assistant</h3>
+                                    <p class="text-sm text-accent font-medium">Your University</p>
+                                    <p class="text-sm text-neutral-600 mt-1 leading-relaxed">
+                                        Course: CS101 Introduction to Computer Science (Fall 2024).
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Education Section -->
+                    <section id="educations" class="scroll-mt-24">
+                         <div class="section-header mb-6">
+                            <h2 class="text-3xl font-serif font-bold text-primary">🎓 Education</h2>
+                        </div>
+                        <div class="timeline space-y-6">
+                            <!-- Example Education Item -->
+                            <div class="timeline-item flex gap-4">
+                                <div class="school-logo-container w-16 h-16 flex-shrink-0 bg-white rounded-lg shadow-sm p-2 flex items-center justify-center border border-neutral-100">
+                                     <i class="fas fa-graduation-cap text-3xl text-neutral-300"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h3 class="font-semibold text-primary">Ph.D. in Computer Science</h3>
+                                    <p class="text-sm text-accent font-medium">Your University</p>
+                                    <p class="text-sm text-neutral-500">2023 - Present</p>
+                                    <p class="text-sm text-neutral-600 mt-1">
+                                        Thesis: Advanced Topics in Artificial Intelligence
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Contact Section -->
+                    <section id="contact" class="scroll-mt-24 mb-12">
+                         <div class="section-header mb-6">
+                            <h2 class="text-3xl font-serif font-bold text-primary">📬 Contact</h2>
+                        </div>
+                         <div class="contact-card bg-neutral-50 rounded-xl p-6 border border-neutral-100">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h3 class="font-serif font-bold text-lg text-primary mb-3">Contact Information</h3>
+                                    <ul class="space-y-3 text-neutral-600">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-envelope mt-1 w-5 text-accent"></i>
+                                            <span class="ml-2">your.email@example.com</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-map-marker-alt mt-1 w-5 text-accent"></i>
+                                            <span class="ml-2">Your Office Location<br>University Name<br>City, Country</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-neutral-200 py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-neutral-500 text-sm">
+                &copy; 2024 Your Name. All rights reserved. <br>
+                Powered by <a href="#" class="text-accent hover:text-accent-dark">AcaNova-X Template</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
