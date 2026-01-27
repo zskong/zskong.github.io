@@ -176,12 +176,22 @@ async function loadHonors() {
 function renderHonorsItems(data, containerId) {
     const container = document.getElementById(containerId);
     if (!container) return;
+
     container.innerHTML = data.map(item => `
-        <div class="honor-item flex gap-6 mb-4 items-baseline group">
-            <div class="honor-year font-mono text-accent font-bold text-sm">${item.date}</div>
-            <div class="honor-content">
-                <h3 class="text-primary font-bold text-sm group-hover:text-accent transition-colors">${item.title}</h3>
-                <p class="text-neutral-500 text-xs">${item.org}</p>
+        <div class="honor-item flex items-baseline gap-8 group">
+            <div class="honor-year w-20 flex-shrink-0 font-mono text-accent font-bold text-base">
+                ${item.date}
+            </div>
+            
+            <div class="honor-content border-l border-neutral-100 pl-8 pb-2 relative">
+                <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-neutral-200 group-hover:bg-accent transition-colors"></div>
+                
+                <h3 class="text-primary font-bold text-lg leading-tight group-hover:text-accent transition-colors">
+                    ${item.title}
+                </h3>
+                <p class="text-neutral-500 text-sm mt-1">
+                    ${item.org}
+                </p>
             </div>
         </div>
     `).join('');
