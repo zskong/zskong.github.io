@@ -13,7 +13,7 @@
   },
   {
     "title": "Local geometry-enhanced anchor learning for multi-view clustering",
-    "authors": "<strong>Zisen Kong</strong>, Zhiqiang Fu, Dongxia Chang, Yiming Wang, Pengyuan Li, Yao Zhao.",
+    "authors": "<strong>Zisen Kong</strong>, Zhiqiang Fu, Dongxia Chang, Yiming Wang, Pengyuan Li, Yao Zhao",
     "venue": "Neurocomputing",
     "year": "2026",
     "type": "journal",
@@ -22,11 +22,11 @@
     "links": {
       "pdf": "https://www.sciencedirect.com/science/article/pii/S0925231225026256",
       "code": "https://github.com/zskong/LEGAC"}
-  }
+  },
 
   {
     "title": "Dual-space co-training for large-scale multi-view clustering",
-    "authors": "<strong>Zisen Kong</strong>, Zhiqiang Fu, Dongxia Chang, Yiming Wang, Yao Zhao.",
+    "authors": "<strong>Zisen Kong</strong>, Zhiqiang Fu, Dongxia Chang, Yiming Wang, Yao Zhao",
     "venue": "Pattern Recognition",
     "year": "2025",
     "type": "journal",
@@ -35,11 +35,11 @@
     "links": {
       "pdf": "https://www.sciencedirect.com/science/article/pii/S0031320325005047",
       "code": "https://github.com/zskong/DSCMC/tree/main"}
-  }
+  },
 
   {
     "title": "Dual-space co-training for large-scale multi-view clustering",
-    "authors": "<strong>Zisen Kong</strong>, Zhiqiang Fu, Dongxia Chang, Yiming Wang, Yao Zhao.",
+    "authors": "<strong>Zisen Kong</strong>, Zhiqiang Fu, Dongxia Chang, Yiming Wang, Yao Zhao",
     "venue": "CVPR",
     "year": "2025",
     "type": "conference",
