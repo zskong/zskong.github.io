@@ -1,0 +1,26 @@
+[
+  {
+    "title": "AcaNova-X: A Modern and Elegant Academic Website Template",
+    "authors": "<strong>Your Name</strong>, Collaborator A, Collaborator B",
+    "venue": "CVPR 2025",
+    "year": "2025",
+    "highlight": "Oral",
+    "thumbnail": "assets/publications/placeholder/paper-thumb.png",
+    "tags": [
+      { "text": "Paper", "link": "#" },
+      { "text": "Code", "link": "#" },
+      { "text": "Project Page", "link": "#" }
+    ]
+  },
+  {
+    "title": "Another Great Research Work on Machine Learning",
+    "authors": "Collaborator A, <strong>Your Name</strong>, Collaborator B",
+    "venue": "NeurIPS 2024",
+    "year": "2024",
+    "highlight": "Spotlight",
+    "thumbnail": "",
+    "tags": [
+      { "text": "Paper", "link": "#" }
+    ]
+  }
+]
