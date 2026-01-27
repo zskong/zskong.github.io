@@ -8,8 +8,8 @@
     "ccf": "A",
     "jcr": "Q1",
     "links": {
-      "pdf": "https://example.com/paper.pdf",
-      "code": "https://github.com/zskong/example",
+      "pdf": "",
+      "code": "",
       "project": "#"
     }
   }
