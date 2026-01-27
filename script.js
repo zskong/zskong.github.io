@@ -122,8 +122,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // Check if we're on the homepage
             const honorsSection = document.getElementById('honors');
             if (honorsSection) {
-                // On homepage - show limited honors (first 8 items)
-                renderHonorsItems(data.slice(0, 8), 'honors-container');
+                // On homepage - show limited honors (first 2 items)
+                renderHonorsItems(data.slice(0, 2), 'honors-container');
             }
             
             // Check if we're on the all-honors page
