@@ -90,7 +90,7 @@ section {
     gap: 2rem;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
     .grid-layout {
         grid-template-columns: 320px 1fr;
         gap: 4rem;
@@ -481,3 +481,4 @@ details summary {
         margin-top: 0.5rem;
     }
 }
+
