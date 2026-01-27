@@ -138,47 +138,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 });
 
-async function loadPublications() {
-    try {
-        const response = await fetch('data/publications.json');
-        const pubs = await response.json();
-
-        const containers = {
-            journal: document.getElementById('journal-list'),
-            conference: document.getElementById('conference-list'),
-            preprint: document.getElementById('preprint-list')
-        };
-
-        Object.values(containers).forEach(c => { if(c) c.innerHTML = ''; });
-
-        pubs.forEach(pub => {
-            const target = containers[pub.type];
-            if (!target) return;
-
-            const html = `
-                <div class="pub-item group relative pl-4 border-l-2 border-transparent hover:border-accent transition-all">
-                    <h4 class="text-base font-bold text-primary group-hover:text-accent transition-colors leading-snug">
-                        ${pub.title}
-                    </h4>
-                    <p class="text-sm text-neutral-600 mt-1">${pub.authors}</p>
-                    <div class="flex flex-wrap items-center gap-2 mt-2">
-                        <span class="text-xs italic text-neutral-500">${pub.venue}, ${pub.year}</span>
-                        ${pub.ccf ? `<span class="text-[9px] font-bold bg-red-50 text-red-600 border border-red-100 px-1 rounded">CCF-${pub.ccf}</span>` : ''}
-                        ${pub.jcr ? `<span class="text-[9px] font-bold bg-amber-50 text-amber-600 border border-amber-100 px-1 rounded">JCR-${pub.jcr}</span>` : ''}
-                    </div>
-                    
-                    <div class="flex gap-2 mt-3">
-                        ${pub.links.pdf ? `<a href="${pub.links.pdf}" class="text-[10px] font-bold px-2 py-0.5 rounded bg-neutral-100 text-neutral-600 hover:bg-primary hover:text-white transition-all"><i class="fas fa-file-pdf mr-1"></i> PDF</a>` : ''}
-                        ${pub.links.code ? `<a href="${pub.links.code}" class="text-[10px] font-bold px-2 py-0.5 rounded bg-neutral-100 text-neutral-600 hover:bg-primary hover:text-white transition-all"><i class="fab fa-github mr-1"></i> Code</a>` : ''}
-                    </div>
-                </div>
-            `;
-            target.insertAdjacentHTML('beforeend', html);
-        });
-    } catch (e) {
-        console.error("Failed to load publications", e);
-    }
-}
 
 
 // Function to load publications from JSON
