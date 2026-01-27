@@ -1,49 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All News - Your Name</title>
-    <link rel="stylesheet" href="../styles.css">
+    <title>All News - Zisen Kong</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: { primary: '#1e293b', accent: '#d4a562' } } }
+        }
+    </script>
 </head>
-<body>
-    <!-- Top Navigation - Shared Banner -->
-    <nav class="top-nav">
-        <ul class="nav-links">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="#" class="active">All News</a></li>
-        </ul>
+<body class="bg-[#fefffe] text-[#0f17 slate-900] font-sans antialiased">
+    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-neutral-100 h-16 flex items-center shadow-sm">
+        <div class="max-w-4xl mx-auto w-full px-6 flex justify-between items-center">
+            <a href="../index.html" class="font-serif font-bold text-xl text-primary">Zisen Kong</a>
+            <a href="../index.html" class="text-sm font-medium text-accent hover:text-primary transition-colors">
+                <i class="fas fa-home mr-1"></i> Back to Home
+            </a>
+        </div>
     </nav>
 
-    <!-- Content Container -->
-    <div class="content-container">
-        <!-- Main Content -->
-        <div class="main-wrapper">
-            <main class="main-content">
-                <section id="all-news" class="section">
-                    <h2 class="section-title">All News & Updates</h2>
-                    <div class="content-block">
-                        <div id="all-news-container" class="news-list">
-                            <!-- News items will be dynamically loaded here from news.json -->
-                        </div>
-                        <div class="view-all-container">
-                            <a href="../index.html" class="view-all-btn"><i class="fas fa-arrow-left"></i> Back to Homepage</a>
-                        </div>
-                    </div>
-                </section>
-            </main>
-        </div>
-    </div>
+    <main class="pt-32 pb-20 max-w-4xl mx-auto px-6">
+        <section id="all-news">
+            <div class="mb-12">
+                <h2 class="text-4xl font-serif font-bold text-primary mb-3">🔥 All News & Updates</h2>
+                <div class="h-1 w-20 bg-accent/30 rounded"></div>
+            </div>
+            
+            <div id="all-news-container" class="space-y-6">
+                <p class="text-neutral-400 italic">Loading news history...</p>
+            </div>
+        </section>
+    </main>
 
-    <footer>
-        <p>&copy; <span id="current-year"></span> Your Name. All rights reserved.</p>
+    <footer class="border-t border-neutral-100 py-10 text-center text-sm text-neutral-400">
+        <p>&copy; 2026 Zisen Kong. All rights reserved.</p>
     </footer>
 
-    <script>
-        // Update copyright year
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>
     <script src="../script.js"></script>
 </body>
 </html>
