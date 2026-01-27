@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // 初始化功能
+    // 初始化基础辅助功能
     makeAllLinksOpenInNewTab();
     setupLinkObserver();
 
-    // 1. 移动端菜单切换
+    // 1. 移动端菜单切换逻辑
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     if (mobileMenuBtn && mobileMenu) {
@@ -13,17 +13,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 2. 加载所有数据
+    // 2. 异步加载数据
     loadPublications();
     loadNews();
     loadHonors();
 
-    // 3. 平滑滚动逻辑
-    const navLinks = document.querySelectorAll('.nav-links a, .mobile-menu a');
+    // 3. 导航栏平滑滚动
+    const navLinks = document.querySelectorAll('.nav-links a, .mobile-nav-item');
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
-            if (href.startsWith('#')) {
+            if (href && href.startsWith('#')) {
                 e.preventDefault();
                 const targetSection = document.querySelector(href);
                 if (targetSection) {
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // 4. 滚动时更新导航栏高亮
+    // 4. 滚动监听：自动高亮当前导航项
     window.addEventListener('scroll', function() {
         let current = '';
         const sections = document.querySelectorAll('section[id]');
@@ -51,21 +51,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         navLinks.forEach(link => {
-            link.classList.remove('active');
+            link.classList.remove('active', 'text-accent');
             const linkTarget = link.getAttribute('href').replace('#', '');
             if (linkTarget === current || (current === 'homepage' && linkTarget === 'about')) {
-                link.classList.add('active');
+                link.classList.add('active', 'text-accent');
             }
         });
     });
 });
 
-/** * 加载论文逻辑 - 已修复 ID 不匹配和分类逻辑
+/**
+ * 加载论文逻辑 - 支持多色 CCF 标签与分类显示
  */
 async function loadPublications() {
-    let path = window.location.pathname.includes('/pages/') || window.location.pathname.includes('/docs/') 
-               ? '../data/publications.json' 
-               : 'data/publications.json';
+    // 自动适配路径
+    const isSubPage = window.location.pathname.includes('/pages/') || window.location.pathname.includes('/docs/');
+    const path = isSubPage ? '../data/publications.json' : 'data/publications.json';
 
     const containers = {
         journal: document.getElementById('journal-list'),
@@ -75,17 +76,28 @@ async function loadPublications() {
 
     if (!containers.journal && !containers.conference && !containers.preprint) return;
 
+    // CCF 颜色配置映射
+    const ccfStyles = {
+        'A': 'bg-red-50 text-red-600 border-red-100',
+        'B': 'bg-blue-50 text-blue-600 border-blue-100',
+        'C': 'bg-green-50 text-green-600 border-green-100',
+        'N': 'bg-neutral-50 text-neutral-600 border-neutral-100'
+    };
+
     try {
         const response = await fetch(path);
-        if (!response.ok) throw new Error('File not found');
+        if (!response.ok) throw new Error('Publications JSON not found');
         const pubs = await response.json();
 
-        // 清空内容
+        // 清空容器
         Object.values(containers).forEach(c => { if(c) c.innerHTML = ''; });
 
         pubs.forEach(pub => {
             const target = containers[pub.type];
             if (!target) return;
+
+            // 获取对应的 CCF 样式
+            const ccfClass = ccfStyles[pub.ccf] || ccfStyles['N'];
 
             const html = `
                 <div class="pub-item group relative pl-4 border-l-2 border-transparent hover:border-accent transition-all mb-8 text-justify">
@@ -94,13 +106,14 @@ async function loadPublications() {
                     </h4>
                     <p class="text-sm text-neutral-600 mt-1">${pub.authors}</p>
                     <div class="flex flex-wrap items-center gap-2 mt-2">
-                        <span class="text-xs italic text-neutral-500">${pub.venue}, ${pub.year}</span>
-                        ${pub.ccf ? `<span class="text-[9px] font-bold bg-red-50 text-red-600 border border-red-100 px-1 rounded">CCF-${pub.ccf}</span>` : ''}
-                        ${pub.jcr ? `<span class="text-[9px] font-bold bg-amber-50 text-amber-600 border border-amber-200 px-1 rounded">JCR-${pub.jcr}</span>` : ''}
+                        <span class="text-xs italic text-neutral-500 font-serif">${pub.venue}, ${pub.year}</span>
+                        ${pub.ccf ? `<span class="text-[9px] font-bold ${ccfClass} border px-1.5 py-0.5 rounded">CCF-${pub.ccf}</span>` : ''}
+                        ${pub.jcr ? `<span class="text-[9px] font-bold bg-amber-50 text-amber-600 border border-amber-200 px-1.5 py-0.5 rounded">JCR-${pub.jcr}</span>` : ''}
                     </div>
                     <div class="flex gap-2 mt-3">
                         ${pub.links?.pdf ? `<a href="${pub.links.pdf}" target="_blank" class="text-[10px] font-bold px-2 py-0.5 rounded bg-neutral-100 text-neutral-600 hover:bg-primary hover:text-white transition-all"><i class="fas fa-file-pdf mr-1"></i> PDF</a>` : ''}
                         ${pub.links?.code ? `<a href="${pub.links.code}" target="_blank" class="text-[10px] font-bold px-2 py-0.5 rounded bg-neutral-100 text-neutral-600 hover:bg-primary hover:text-white transition-all"><i class="fab fa-github mr-1"></i> Code</a>` : ''}
+                        ${pub.links?.project ? `<a href="${pub.links.project}" target="_blank" class="text-[10px] font-bold px-2 py-0.5 rounded bg-neutral-100 text-neutral-600 hover:bg-primary hover:text-white transition-all"><i class="fas fa-globe mr-1"></i> Project</a>` : ''}
                     </div>
                 </div>`;
             target.insertAdjacentHTML('beforeend', html);
@@ -110,11 +123,12 @@ async function loadPublications() {
     }
 }
 
-/** * 加载新闻逻辑 - 已修复 404 路径问题
+/**
+ * 加载新闻逻辑
  */
 async function loadNews() {
-    let path = window.location.pathname.includes('/pages/') || window.location.pathname.includes('/docs/') 
-               ? '../data/news.json' : 'data/news.json';
+    const isSubPage = window.location.pathname.includes('/pages/') || window.location.pathname.includes('/docs/');
+    const path = isSubPage ? '../data/news.json' : 'data/news.json';
     
     try {
         const response = await fetch(path);
@@ -136,17 +150,18 @@ function renderNewsItems(newsData, containerId) {
             <span class="news-date font-mono text-accent text-sm whitespace-nowrap">${item.date}</span>
             <div class="news-content text-sm text-neutral-700">
                 🎉 ${item.content}
-                ${(item.links || []).map(l => `<a href="${l.url}" target="_blank" class="ml-2 text-accent hover:underline">[${l.text}]</a>`).join('')}
+                ${(item.links || []).map(l => `<a href="${l.url}" target="_blank" class="ml-2 text-accent hover:underline decoration-accent/30">[${l.text}]</a>`).join('')}
             </div>
         </div>
     `).join('');
 }
 
-/** * 加载荣誉逻辑
+/**
+ * 加载荣誉逻辑
  */
 async function loadHonors() {
-    let path = window.location.pathname.includes('/pages/') || window.location.pathname.includes('/docs/') 
-               ? '../data/honors.json' : 'data/honors.json';
+    const isSubPage = window.location.pathname.includes('/pages/') || window.location.pathname.includes('/docs/');
+    const path = isSubPage ? '../data/honors.json' : 'data/honors.json';
     try {
         const response = await fetch(path);
         const data = await response.json();
@@ -162,17 +177,17 @@ function renderHonorsItems(data, containerId) {
     const container = document.getElementById(containerId);
     if (!container) return;
     container.innerHTML = data.map(item => `
-        <div class="honor-item flex gap-6 mb-4 items-baseline">
+        <div class="honor-item flex gap-6 mb-4 items-baseline group">
             <div class="honor-year font-mono text-accent font-bold text-sm">${item.date}</div>
             <div class="honor-content">
-                <h3 class="text-primary font-bold text-sm">${item.title}</h3>
+                <h3 class="text-primary font-bold text-sm group-hover:text-accent transition-colors">${item.title}</h3>
                 <p class="text-neutral-500 text-xs">${item.org}</p>
             </div>
         </div>
     `).join('');
 }
 
-// 辅助工具函数
+// 辅助工具：所有外部链接自动新窗口打开
 function makeAllLinksOpenInNewTab() {
     document.querySelectorAll('a').forEach(link => {
         const href = link.getAttribute('href');
@@ -183,6 +198,7 @@ function makeAllLinksOpenInNewTab() {
     });
 }
 
+// 监听动态内容变化，确保新加载的链接也支持新窗口打开
 function setupLinkObserver() {
     const observer = new MutationObserver(() => makeAllLinksOpenInNewTab());
     observer.observe(document.body, { childList: true, subtree: true });
