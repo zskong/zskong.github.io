@@ -205,24 +205,29 @@
 
                     <!-- Publications Section -->
                     <section id="publications" class="scroll-mt-24">
-                        <div class="section-header mb-8">
+                        <div class="section-header mb-8 flex justify-between items-end">
+                            <div>
                             <h2 class="text-3xl font-serif font-bold text-primary">📄 Publications</h2>
                             <p class="text-sm text-neutral-500 mt-1">(* means equal contribution / <sup>#</sup> means corresponding author)</p>
+                            </div>
+                            <a href="docs/all-publications.html" class="text-sm font-medium text-accent hover:text-accent-dark transition-colors pb-1">
+                                View All <i class="fas fa-arrow-right ml-1"></i>
+                            </a>     
                         </div>
 
                         <div class="pub-category mb-12">
                             <h3 class="text-xl font-serif font-bold text-primary mb-6 flex items-center">
-                                <span class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center mr-3 text-sm border border-amber-100">J</span>
+                                <i class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center mr-3 text-sm border border-amber-100">J</i>
                                 Journal Articles
                             </h3>
                        <div id="journal-list" class="space-y-8">
+                           <p class="text-sm text-neutral-400 italic">Loading journals...</p>
                            </div>
                 </div>
 
                 <div class="pub-category mb-12">
                     <h3 class="text-xl font-serif font-bold text-primary mb-6 flex items-center">
-                        <span class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center mr-3 text-sm border border-blue-100">C</span>
-                        Conference Papers
+                        <i class="fas fa-file-lines text-blue-600 mr-2 text-sm">C</i> Conference Papers
                     </h3>
                     <div id="conference-list" class="space-y-8">
                         </div>
@@ -230,18 +235,11 @@
 
                 <div class="pub-category">
                     <h3 class="text-xl font-serif font-bold text-primary mb-6 flex items-center">
-                    <span class="w-8 h-8 rounded-lg bg-slate-50 text-slate-600 flex items-center justify-center mr-3 text-sm border border-slate-100">P</span>
-                    Preprints & Working Papers
+                    <i class="fas fa-clock-rotate-left text-slate-500 mr-2 text-sm"></i> Preprints 
                 </h3>
                 <div id="preprint-list" class="space-y-8">
                    </div>
               </div>
-
-                <div class="mt-10 text-center">
-                   <a href="docs/all-publications.html" class="inline-flex items-center text-accent hover:text-accent-dark font-medium transition-colors">
-                    View All Publications <i class="fas fa-arrow-right ml-2"></i>
-                   </a>
-                </div>
         </section>
 
                     <!-- Honors Section -->
@@ -500,6 +498,7 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
