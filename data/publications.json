@@ -1,5 +1,23 @@
 [
   {
+    "title": "Disentangled Contrastive Multi-view Clustering via Semantic Relevance Invariance",
+    "authors": "Pengyuan Li, Dongxia Chang, Yiming Wang, <strong>Zisen Kong</strong>, Linhua Kong, Yao Zhao",
+    "venue": "IEEE Transactions on Knowledge and Data Engineering (TKDE)",
+    "year": "2026",
+    "type": "journal",
+    "ccf": "A",
+    "jcr": "Q1",
+    "links": {
+      "pdf": "https://example.com/paper.pdf",
+      "code": "https://github.com/zskong/example",
+      "project": "#"
+    }
+  }
+]
+
+
+[
+  {
     "title": "AcaNova-X: A Modern and Elegant Academic Website Template",
     "authors": "<strong>Your Name</strong>, Collaborator A, Collaborator B",
     "venue": "CVPR 2025",
