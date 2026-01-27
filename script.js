@@ -100,11 +100,11 @@ async function loadPublications() {
             const ccfClass = ccfStyles[pub.ccf] || ccfStyles['N'];
 
             const html = `
-                <div class="pub-item group relative pl-4 border-l-2 border-transparent hover:border-accent transition-all mb-8 text-justify">
-                    <h4 class="text-base font-bold text-primary group-hover:text-accent transition-colors leading-snug">
+                <div class="pub-item group relative pl-4 border-l-2 border-transparent hover:border-accent transition-all mb-10 text-justify">
+                    <h4 class="text-lg font-bold text-primary group-hover:text-accent transition-colors leading-tight mb-1.5">
                         ${pub.title}
                     </h4>
-                    <p class="text-sm text-neutral-600 mt-1">${pub.authors}</p>
+                    <p class="text-sm text-neutral-600 mt-1 font-medium">${pub.authors}</p>
                     <div class="flex flex-wrap items-center gap-2 mt-2">
                         <span class="text-xs italic text-neutral-500 font-serif">${pub.venue}, ${pub.year}</span>
                         ${pub.ccf ? `<span class="text-[9px] font-bold ${ccfClass} border px-1.5 py-0.5 rounded">CCF-${pub.ccf}</span>` : ''}
