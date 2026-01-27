@@ -1,14 +1,18 @@
 [
   {
-    "date": "2025-01-01",
-    "content": "Welcome to my new academic homepage! This template is available on GitHub.",
-    "links": [
-        { "text": "GitHub", "url": "https://github.com/yihangtao/AcaNova-X" }
-    ]
+    "date": "2026-01-24",
+    "content": "accept to serve as a reviewer for ECCV.",
+    "links": []
   },
   {
-     "date": "2024-12-15",
-     "content": "One paper titled 'A Novel Approach to AI' was accepted to CVPR 2025!",
+     "date": "2026-01-19",
+     "content": "accept to serve as a reviewer for ICMR",
+     "links": []
+  },
+  {
+     "date": "2026-01-17",
+     "content": "One paper is accepted to TKDE!",
      "links": []
   }
+  
 ]
