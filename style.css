@@ -324,6 +324,31 @@ details summary {
     display: none;
 }
 
+.pub-item {
+    position: relative;
+    padding-left: 0;
+}
+
+.pub-item::before {
+    content: '';
+    position: absolute;
+    left: -1.5rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: transparent;
+    transition: all 0.3s;
+}
+
+.pub-item:hover::before {
+    background: #d4a562; /* accent color */
+    transform: translateX(5px);
+}
+
+
+
+
+
 /* News Item Dashed Line */
 .news-item {
     display: grid;
@@ -481,4 +506,5 @@ details summary {
         margin-top: 0.5rem;
     }
 }
+
 
