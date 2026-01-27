@@ -1,373 +1,483 @@
-table#tlayout {
-    width: 100%;
-    border: none;
-    border-collapse: collapse;
-    background: white;
-}
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Kalam:wght@300;400;700&display=swap');
 
+/* Base Styles */
 body {
-	background: white;
-	font-family: Georgia, sans-serif;
-/* font-family:verdana, Arial, Helvetica, sans-serif; */
-	padding-bottom: 8px;
-	margin: 0;
+    font-family: 'Inter', sans-serif;
+    color: #0f172a; /* slate-900 */
+    background-color: #f8fafc; /* slate-50 */
+    line-height: 1.6;
 }
 
-#layout-menu {
-	background: #f6f6f6;
-	border: 1px solid #dddddd;
-	padding-top: 0.5em;
-	padding-left: 8px;
-	padding-right: 8px;
-	font-size: 1.0em;
-	width: 175px;
-	white-space: nowrap;
-    text-align: left;
-    vertical-align: top;
+/* Typography Overrides */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Crimson Text', serif;
 }
 
-#layout-menu td {
-	background: #f4f4f4;
-    vertical-align: top;
+.font-serif {
+    font-family: 'Crimson Text', serif;
 }
 
-#layout-content {
-	padding-top: 0.0em;
-	padding-left: 1.0em;
-	padding-right: 1.0em;
+.font-sans {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Glassmorphism Navigation */
+.glass {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+}
+
+.nav-item {
+    position: relative;
+    font-weight: 500;
+    color: #475569; /* slate-600 */
+    transition: color 0.2s;
+}
+
+.nav-item:hover {
+    color: #1e293b; /* slate-800 */
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #d4a562; /* accent */
+    transition: width 0.3s ease;
+}
+
+.nav-item:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.profile-image-container {
+    position: relative;
+    z-index: 10;
+}
+
+/* Section Styling */
+section {
+    position: relative;
+}
+
+.section-header h2 {
+    position: relative;
+    display: inline-block;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 40%;
+    height: 3px;
+    background-color: rgba(212, 165, 98, 0.3); /* accent with opacity */
+    z-index: -1;
+}
+
+/* Main Layout Grid */
+.grid-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+    .grid-layout {
+        grid-template-columns: 320px 1fr;
+        gap: 4rem;
+        align-items: start;
+    }
+}
+
+/* Cards */
+.news-card, .research-card, .contact-card {
+    transition: all 0.3s ease;
+}
+
+.news-card:hover, .research-card:hover, .contact-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border-color: #cbd5e1; /* slate-300 */
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Utility */
+.text-accent {
+    color: #d4a562;
+}
+
+.bg-accent {
+    background-color: #d4a562;
+}
+
+.border-accent {
+    border-color: #d4a562;
+}
+
+.hover\:text-accent:hover {
+    color: #d4a562;
+}
+
+/* Research Highlights (Accordion/Details Style if needed, but using clean list for now) */
+details summary {
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: justify;
+}
+
+/* New Publication List Styles */
+.pub-year-group {
+    margin-bottom: 2rem;
+}
+
+.pub-year-header {
+    font-family: 'Inter', sans-serif; /* Wider than Crimson Text */
+    font-size: 1.35rem; /* Slightly larger */
+    font-weight: 700;
+    font-style: italic;
+    letter-spacing: 0.05em; /* Add spacing for wider look */
+    color: #1e293b;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 0.25rem;
+    display: inline-block;
+}
+
+.pub-list-ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+}
+
+.pub-list-item {
+    margin-bottom: 1.25rem;
+    line-height: 1.5;
+}
+
+.pub-line-1 {
+    font-size: 1rem;
+    margin-bottom: 0.1rem;
+}
+
+.pub-venue-tag {
+    font-weight: 700;
+    margin-right: 0.5rem;
+}
+
+.pub-title-text {
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.pub-link-btn {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.1rem 0.5rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    color: #475569;
+    margin-left: 0.5rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    vertical-align: middle;
+    background-color: white;
+}
+
+.pub-link-btn:hover {
+    border-color: #d4a562;
+    color: #d4a562;
+    background-color: #fffbeb;
+}
+
+.tag-arxiv {
+    color: #2563eb; /* Blue for Arxiv */
+}
+
+.tag-conference {
+    color: #dc2626; /* Red for Conference/Journal */
+}
+
+.pub-title-link {
+    color: #1e293b;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.pub-title-link:hover {
+    color: #d4a562; /* accent */
+    border-bottom-color: #d4a562;
+}
+
+.pub-line-2 {
+    font-size: 0.95rem;
+    color: #4b5563; /* neutral-600 */
+    margin-bottom: 0.1rem;
+}
+
+.pub-line-2 strong, .pub-line-2 b {
+    color: #1e293b; /* primary */
+    font-weight: 600;
+}
+
+.pub-line-3 {
+    font-size: 0.9rem;
+    color: #64748b; /* slate-500 */
+    font-style: italic;
+}
+
+/* Publication Card Typography (Legacy/Unused for now) */
+.pub-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1e293b; /* primary */
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.pub-authors {
+    font-size: 0.95rem;
+    color: #64748b; /* muted */
+    margin-bottom: 0.5rem;
+}
+
+.pub-venue {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #64748b; /* muted */
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.pub-highlight {
+    font-size: 0.85rem;
+    color: #d97706; /* amber-600 */
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* Publication CCF Ranks and Badges */
+.pub-badge-highlight {
+    display: inline-block;
+    background-color: #ef4444; /* Red */
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+    line-height: 1.2;
+}
+
+.ccf-rank {
+    font-weight: 700;
+    margin-left: 0.3rem;
+}
+
+.ccf-a {
+    color: #dc2626; /* Red-600 */
+}
+
+.ccf-b {
+    color: #2563eb; /* Blue-600 */
+}
+
+.ccf-c {
+    color: #16a34a; /* Green-600 */
+}
+
+.publication:hover {
+    border-color: #d4a562; /* accent */
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
+    transform: translateY(-2px);
+}
+
+/* Venue Logo - Hidden for Text-Only Style */
+.venue-logo {
+    display: none;
+}
+
+/* News Item Dashed Line */
+.news-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 1.5rem;
+    align-items: baseline;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px dashed #e2e8f0;
+}
+
+.news-date {
+    font-family: 'Kalam', cursive; /* Cleaner, wider handwriting font */
+    font-weight: 400; 
+    font-size: 0.9rem; 
+    color: #64748b;
+    white-space: nowrap;
+}
+
+.news-content {
+    font-family: 'Kalam', cursive; /* Cleaner, wider handwriting font */
+    font-size: 0.95rem; 
+    color: #334155;
+    line-height: 1.5;
+}
+
+.news-item:last-child {
+    border-bottom: none;
+}
+
+/* Formal Text */
+.formal-font {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* Service Section */
+.service-category {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f1f5f9;
+    margin-bottom: 1.5rem;
+}
+
+.service-category:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.service-category h3 {
+    font-size: 1rem; /* Match education header size */
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 0.35rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.service-items {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem; /* Match education text size (approx) */
+    color: #475569;
+    line-height: 1.5;
+}
+
+/* Honors Section Styling */
+.honor-item {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 1.5rem;
+    align-items: baseline;
+    margin-bottom: 1.5rem;
+}
+
+.honor-year {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #d4a562; /* accent */
+    text-align: right;
+    white-space: nowrap;
+}
+
+.honor-content h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1e293b; /* primary */
+}
+
+/* Publication Thumbnail & Layout */
+.pub-content-wrapper {
+    width: 100%;
+}
+
+.pub-list-item.with-thumbnail-expanded {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    padding: 1rem;
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.pub-thumbnail-box {
+    width: 200px; /* Fixed width for thumbnail */
+    flex-shrink: 0;
+    order: -1; /* Move to the left */
     border: none;
-    background: white;
-    text-align: left;
-    vertical-align: top;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
 }
 
-#layout-menu a {
-	line-height: 1.5em;
-	margin-left: 0.5em;
+.pub-thumbnail-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-tt {
-    background: #ffffdd;
+.pub-list-item.with-thumbnail-expanded .pub-content-wrapper {
+    flex-grow: 1;
 }
 
-pre, tt {
-	font-size: 90%;
-	font-family: monaco, monospace;
+/* Adjust text spacing in expanded mode */
+.pub-list-item.with-thumbnail-expanded .pub-line-1 {
+    margin-bottom: 0.5rem;
 }
 
-a, a > tt {
-	color: #AA7F8C;
-	text-decoration: none;
+.pub-list-item.with-thumbnail-expanded .pub-title-text {
+    font-size: 1.1rem; /* Larger title in expanded mode */
 }
 
-a:hover {
-	border-bottom: 1px orange solid;
+.pub-btn-preview {
+    cursor: pointer;
 }
 
-#layout-menu a.current:link, #layout-menu a.current:visited {
-	color: #AA7F8C;
-	border-bottom: 1px gray solid;
-}
-#layout-menu a:link, #layout-menu a:visited, #layout-menu a:hover {
-	color: #AA7F8C;
-	text-decoration: none;
-}
-#layout-menu a:hover {
-	text-decoration: none;
+.pub-btn-preview.active {
+    background-color: #1e293b;
+    color: white;
+    border-color: #1e293b;
 }
 
-div.menu-category {
-	border-bottom: 1px solid gray;
-	margin-top: 0.8em;
-	padding-top: 0.2em;
-	padding-bottom: 0.1em;
-	font-weight: bold;
-}
-
-div.menu-item {
-	padding-left: 16px;
-	text-indent: -16px;
-}
-
-div#toptitle {
-	padding-bottom: 0.2em;
-	margin-bottom: 1.5em;
-	border-bottom: 3px double gray;
-}
-
-div#subtitle {
-	margin-top: 0.0em;
-	margin-bottom: 0.0em;
-	padding-top: 0em;
-	padding-bottom: 0.1em;
-}
-
-em {
-	font-style: italic;
-}
-
-strong {
-	font-weight: bold;
-}
-
-h1, h2, h3 {
-	color: #568076; 
-	/* 这里改的颜色是mepro, google scholar et al */
-	margin-top: 0.7em;
-	margin-bottom: 0.3em;
-    padding-top: 0.5em;
-	padding-bottom: 0.2em;
-	line-height: 1.0;	
-}
-
-h1 {
-	font-size: 165%;
-}
-
-h2 {
-	padding-top: 0.8em;
-    padding-bottom: 0.6em;
-	font-size: 125%;
-}
-
-h2 + h3 {
-    padding-top: 0.2em;
-}
-
-h3 {
-	font-size: 110%;
-	border-bottom: none;
-}
-
-p {
-	margin-top: 0.0em;
-	margin-bottom: 0.8em;
-	padding: 0;
-	line-height: 1.3;
-}
-
-pp {
-	margin-top: 0.0em;
-	margin-bottom: 0.8em;
-	padding: 0;
-	line-height: 1.3;
-	text-decoration: underline;
-  -webkit-text-decoration-color: red; /* Safari */  
-  text-decoration-color: red;
-}
-
-
-pre {
-	padding: 0;
-	margin: 0;
-}
-
-div#footer {
-	font-size: small;
-	border-top: 1px solid #c0c0c0;
-	padding-top: 0.1em;
-	margin-top: 4.0em;
-	color: #c0c0c0;
-}
-
-div#footer a {
-	color: #80a0b0;
-}
-
-div#footer-text {
-	float: left;
-	padding-bottom: 8px;
-}
-
-ul, ol, dl {
-	margin-top: 0.2em;
-	padding-top: 0;
-	margin-bottom: 0.8em;
-}
-
-dt {
-	margin-top: 0.5em;
-	margin-bottom: 0;
-}
-
-dl {
-	margin-left: 20px;
-}
-
-dd {
-	color: #222222;
-}
-
-dd > *:first-child {
-	margin-top: 0;
-}
-
-ul {
-	list-style-position: outside;
-	list-style-type: square;
-}
-
-p + ul, p + ol {
-	margin-top: -0.5em;
-}
-
-li ul, li ol {
-	margin-top: -0.3em;
-}
-
-ol {
-	list-style-position: outside;
-	list-style-type: decimal;
-}
-
-li p, dd p {
-	margin-bottom: 0.3em;
-}
-
-
-ol ol {
-	list-style-type: lower-alpha;
-}
-
-ol ol ol {
-	list-style-type: lower-roman;
-}
-
-p + div.codeblock {
-	margin-top: -0.6em;
-}
-
-div.codeblock, div.infoblock {
-	margin-right: 0%;
-	margin-top: 1.2em;
-	margin-bottom: 1.3em;
-}
-
-div.blocktitle {
-	font-weight: bold;
-	color: #cd7b62;
-	margin-top: 1.2em;
-	margin-bottom: 0.1em;
-}
-
-div.blockcontent {
-	border: 1px solid silver;
-	padding: 0.3em 0.5em;
-}
-
-div.infoblock > div.blockcontent {
-	background: #ffffee;
-}
-
-div.blockcontent p + ul, div.blockcontent p + ol {
-	margin-top: 0.4em;
-}
-
-div.infoblock p {
-	margin-bottom: 0em;
-}
-
-div.infoblock li p, div.infoblock dd p {
-	margin-bottom: 0.5em;
-}
-
-div.infoblock p + p {
-	margin-top: 0.8em;
-}
-
-div.codeblock > div.blockcontent {
-	background: #f6f6f6;
-}
-
-span.pycommand {
-	color: #000070;
-}
-
-span.statement {
-	color: #008800;
-}
-span.builtin {
-	color: #000088;
-}
-span.special {
-	color: #990000;
-}
-span.operator {
-	color: #880000;
-}
-span.error {
-	color: #aa0000;
-}
-span.comment, span.comment > *, span.string, span.string > * {
-	color: #606060;
-}
-
-@media print {
-	#layout-menu { display: none; }
-}
-
-#fwtitle {
-	margin: 2px;
-}
-
-#fwtitle #toptitle {
-	padding-left: 0.5em;
-	margin-bottom: 0.5em;
-}
-
-#layout-content h1:first-child, #layout-content h2:first-child, #layout-content h3:first-child {
-	margin-top: -0.7em;
-}
-
-div#toptitle h1, #layout-content div#toptitle h1 {
-	margin-bottom: 0.0em;
-	padding-bottom: 0.1em;
-	padding-top: 0;
-	margin-top: 0.5em;
-	border-bottom: none;
-}
-
-img.eq {
-	padding: 0;
-	padding-left: 0.1em;
-	padding-right: 0.1em;
-	margin: 0;
-}
-
-img.eqwl {
-	padding-left: 2em;
-	padding-top: 0.6em;
-	padding-bottom: 0.2em;
-	margin: 0;
-}
-
-table {
-    border: 1px solid gray;
-    border-collapse: collapse;
-}
-
-td {
-    padding: 2px;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-    text-align: center;
-    border: 1px solid gray;
-}
-
-table + table {
-    margin-top: 1em;
-}
-
-tr.heading {
-    font-weight: bold;
-    border-bottom: 2px solid black;
-}
-
-img {
-    border: none;
-}
-
-table.imgtable, table.imgtable td {
-    border: none;
-    text-align: center;
+/* Make sure mobile layout stacks */
+@media (max-width: 640px) {
+    .pub-list-item.with-thumbnail-expanded {
+        flex-direction: column;
+    }
+    .pub-thumbnail-box {
+        width: 100%;
+        max-width: 300px;
+        margin-top: 0.5rem;
+    }
 }
