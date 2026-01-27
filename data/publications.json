@@ -39,14 +39,13 @@
     }
   },
   {
-    "title": "Dual-space co-training for large-scale multi-view clustering",
-    "authors": "<strong>Zisen Kong</strong>, Zhiqiang Fu, Dongxia Chang, Yiming Wang, Yao Zhao",
-    "venue": "CVPR",
-    "year": "2025",
-    "type": "conference",
-    "ccf": "A",
+    "title": "Association and Consolidation: Evolutionary Memory-Enhanced Incremental Multi-View Clustering",
+    "authors": "<strong>Zisen Kong</strong>, Bo Zhong, Pengyuan Li, Dongxia Chang, Yiming Wang, Yongyong Chen",
+    "venue": "arxiv",
+    "year": "2026",
+    "type": "preprint",
     "links": {
-      "pdf": "",
+      "pdf": "https://arxiv.org/abs/2509.14544",
       "code": ""
     }
   }
