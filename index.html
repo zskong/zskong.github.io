@@ -205,15 +205,44 @@
 
                     <!-- Publications Section -->
                     <section id="publications" class="scroll-mt-24">
-                        <div class="section-header mb-6">
+                        <div class="section-header mb-8">
                             <h2 class="text-3xl font-serif font-bold text-primary">📄 Publications</h2>
-                            <p class="text-sm text-neutral-500 mt-1">(* means equal contribution)</p>
+                            <p class="text-sm text-neutral-500 mt-1">(* means equal contribution / <sup>#</sup> means corresponding author)</p>
                         </div>
-                        
-                        <div class="publications-list space-y-6">
-                            <!-- Dynamic Content loaded from data/publications.json -->
+
+                        <div class="pub-category mb-12">
+                            <h3 class="text-xl font-serif font-bold text-primary mb-6 flex items-center">
+                                <span class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center mr-3 text-sm border border-amber-100">J</span>
+                                Journal Articles
+                            </h3>
+                       <div id="journal-list" class="space-y-8">
+                           </div>
+                </div>
+
+                <div class="pub-category mb-12">
+                    <h3 class="text-xl font-serif font-bold text-primary mb-6 flex items-center">
+                        <span class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center mr-3 text-sm border border-blue-100">C</span>
+                        Conference Papers
+                    </h3>
+                    <div id="conference-list" class="space-y-8">
                         </div>
-                    </section>
+                </div>
+
+                <div class="pub-category">
+                    <h3 class="text-xl font-serif font-bold text-primary mb-6 flex items-center">
+                    <span class="w-8 h-8 rounded-lg bg-slate-50 text-slate-600 flex items-center justify-center mr-3 text-sm border border-slate-100">P</span>
+                    Preprints & Working Papers
+                </h3>
+                <div id="preprint-list" class="space-y-8">
+                   </div>
+              </div>
+
+                <div class="mt-10 text-center">
+                   <a href="docs/all-publications.html" class="inline-flex items-center text-accent hover:text-accent-dark font-medium transition-colors">
+                    View All Publications <i class="fas fa-arrow-right ml-2"></i>
+                   </a>
+                </div>
+        </section>
 
                     <!-- Honors Section -->
                     <section id="honors" class="scroll-mt-24">
@@ -471,6 +500,7 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
