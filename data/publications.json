@@ -19,6 +19,7 @@
     "year": "2026",
     "type": "journal",
     "ccf": "C",
+    "jcr": "Q2",
     "links": {
       "pdf": "https://www.sciencedirect.com/science/article/pii/S0925231225026256",
       "code": "https://github.com/zskong/LEGAC"
