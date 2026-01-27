@@ -386,6 +386,45 @@ function getVenueShortName(venueStr, year) {
     return s;
 }
 
+async function loadPublications() {
+    try {
+        const response = await fetch('data/publications.json');
+        if (!response.ok) throw new Error('Network response was not ok');
+        const pubs = await response.json();
+        const journalContainer = document.getElementById('journal-list');
+        const conferenceContainer = document.getElementById('conference-list');
+        const preprintContainer = document.getElementById('preprint-list');
+
+        if (journalContainer) journalContainer.innerHTML = '';
+        if (conferenceContainer) conferenceContainer.innerHTML = '';
+        if (preprintContainer) preprintContainer.innerHTML = '';
+
+        pubs.forEach(pub => {
+            let html = `
+                <div class="pub-item border-l-2 border-transparent hover:border-accent pl-4 transition-all">
+                    <h4 class="text-base font-bold text-primary">${pub.title}</h4>
+                    <p class="text-sm text-neutral-600">${pub.authors}</p>
+                    <div class="flex gap-2 mt-2">
+                        <span class="text-xs italic text-neutral-500">${pub.venue}, ${pub.year}</span>
+                        ${pub.ccf ? `<span class="text-[9px] font-bold bg-red-50 text-red-600 px-1 rounded">CCF-${pub.ccf}</span>` : ''}
+                    </div>
+                </div>`;
+            
+            if (pub.type === 'journal' && journalContainer) journalContainer.innerHTML += html;
+            else if (pub.type === 'conference' && conferenceContainer) conferenceContainer.innerHTML += html;
+            else if (pub.type === 'preprint' && preprintContainer) preprintContainer.innerHTML += html;
+        });
+    } catch (error) {
+        console.error('Detailed Error:', error);
+        document.getElementById('journal-list').innerHTML = `<p class="text-red-500">Error: ${error.message}</p>`;
+    }
+}
+
+
+
+
+
+
 function getVenueFullName(venueStr, year) {
     if (!venueStr) return '';
     let s = venueStr.replace(/\d{4}/g, '').trim(); // Remove year
