@@ -2,7 +2,7 @@
   {
     "title": "Disentangled Contrastive Multi-view Clustering via Semantic Relevance Invariance",
     "authors": "Pengyuan Li, Dongxia Chang, Yiming Wang, <strong>Zisen Kong</strong>, Linhua Kong, Yao Zhao",
-    "venue": "IEEE TKDE",
+    "venue": "IEEE Transactions on Knowledge and Data Engineering",
     "year": "2026",
     "type": "journal",
     "ccf": "A",
@@ -12,6 +12,19 @@
       "code": "https://github.com/Lummer-Li/DMVCS"
     }
   },
+  {
+    "title": "Local geometry-enhanced anchor learning for multi-view clustering",
+    "authors": "<strong>Zisen Kong</strong>, Zhiqiang Fu, Dongxia Chang, Yiming Wang, Pengyuan Li, Yao Zhao.",
+    "venue": "Neurocomputing",
+    "year": "2026",
+    "type": "journal",
+    "ccf": "C",
+    "links": {
+      "pdf": "https://www.sciencedirect.com/science/article/pii/S0925231225026256",
+      "code": "https://github.com/zskong/LEGAC"
+    }
+  }
+
   {
     "title": "Augmented Tensorized Consensus Learning for Multi-view Clustering with Anchor-Aligned (ATMCA)",
     "authors": "<strong>Zisen Kong</strong>, Dongxia Chang, et al.",
