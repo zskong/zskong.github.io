@@ -27,8 +27,21 @@
   }
 
   {
-    "title": "Augmented Tensorized Consensus Learning for Multi-view Clustering with Anchor-Aligned (ATMCA)",
-    "authors": "<strong>Zisen Kong</strong>, Dongxia Chang, et al.",
+    "title": "Dual-space co-training for large-scale multi-view clustering",
+    "authors": "<strong>Zisen Kong</strong>, Zhiqiang Fu, Dongxia Chang, Yiming Wang, Yao Zhao.",
+    "venue": "Pattern Recognition",
+    "year": "2025",
+    "type": "journal",
+    "ccf": "B",
+    "links": {
+      "pdf": "https://www.sciencedirect.com/science/article/pii/S0031320325005047",
+      "code": "https://github.com/zskong/DSCMC/tree/main"
+    }
+  }
+
+  {
+    "title": "Dual-space co-training for large-scale multi-view clustering",
+    "authors": "<strong>Zisen Kong</strong>, Zhiqiang Fu, Dongxia Chang, Yiming Wang, Yao Zhao.",
     "venue": "CVPR",
     "year": "2025",
     "type": "conference",
