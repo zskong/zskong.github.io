@@ -9,7 +9,8 @@
     "jcr": "Q1",
     "links": {
       "pdf": "https://ieeexplore.ieee.org/document/11359434",
-      "code": "https://github.com/Lummer-Li/DMVCS"}
+      "code": "https://github.com/Lummer-Li/DMVCS"
+    }
   },
   {
     "title": "Local geometry-enhanced anchor learning for multi-view clustering",
@@ -21,9 +22,9 @@
     "jcr": "Q2",
     "links": {
       "pdf": "https://www.sciencedirect.com/science/article/pii/S0925231225026256",
-      "code": "https://github.com/zskong/LEGAC"}
+      "code": "https://github.com/zskong/LEGAC"
+    }
   },
-
   {
     "title": "Dual-space co-training for large-scale multi-view clustering",
     "authors": "<strong>Zisen Kong</strong>, Zhiqiang Fu, Dongxia Chang, Yiming Wang, Yao Zhao",
@@ -34,9 +35,9 @@
     "jcr": "Q1",
     "links": {
       "pdf": "https://www.sciencedirect.com/science/article/pii/S0031320325005047",
-      "code": "https://github.com/zskong/DSCMC/tree/main"}
+      "code": "https://github.com/zskong/DSCMC/tree/main"
+    }
   },
-
   {
     "title": "Dual-space co-training for large-scale multi-view clustering",
     "authors": "<strong>Zisen Kong</strong>, Zhiqiang Fu, Dongxia Chang, Yiming Wang, Yao Zhao",
@@ -45,7 +46,8 @@
     "type": "conference",
     "ccf": "A",
     "links": {
-      "pdf": "#",
-      "code": "#"}
+      "pdf": "",
+      "code": ""
+    }
   }
 ]
