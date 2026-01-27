@@ -4,45 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Honors & Awards - Zisen Kong</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e293b',
+                        accent: '#d4a562',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-    <!-- Top Navigation - Shared Banner -->
-    <nav class="top-nav">
-        <ul class="nav-links">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="#" class="active">All Honors</a></li>
-        </ul>
+<body class="bg-[#fefffe] text-slate-900 font-sans antialiased">
+    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-neutral-100 h-16 flex items-center shadow-sm">
+        <div class="max-w-4xl mx-auto w-full px-6 flex justify-between items-center">
+            <a href="../index.html" class="font-serif font-bold text-xl text-primary">Zisen Kong</a>
+            <a href="../index.html" class="text-sm font-medium text-accent hover:text-primary transition-colors">
+                <i class="fas fa-home mr-1"></i> Home
+            </a>
+        </div>
     </nav>
 
-    <!-- Content Container -->
-    <div class="content-container">
-        <!-- Main Content -->
-        <div class="main-wrapper">
-            <main class="main-content">
-                <section id="all-honors" class="section">
-                    <h2 class="section-title">All Honors & Awards</h2>
-                    <div class="content-block">
-                        <div id="all-honors-container" class="honors-list">
-                            <!-- Honors items will be dynamically loaded here from honors.json -->
-                        </div>
-                        <div class="view-all-container">
-                            <a href="../index.html" class="view-all-btn"><i class="fas fa-arrow-left"></i> Back to Homepage</a>
-                        </div>
-                    </div>
-                </section>
-            </main>
-        </div>
-    </div>
+    <main class="pt-32 pb-20 max-w-4xl mx-auto px-6">
+        <section id="all-honors">
+            <div class="mb-12">
+                <h2 class="text-4xl font-serif font-bold text-primary mb-3">🏆 All Honors & Awards</h2>
+                <div class="h-1 w-20 bg-accent/30 rounded"></div>
+            </div>
 
-    <footer>
+            <div id="all-honors-container" class="space-y-8">
+                <p class="text-neutral-400 italic">Loading honors data...</p>
+            </div>
+
+            <div class="mt-16 pt-8 border-t border-neutral-100">
+                <a href="../index.html" class="inline-flex items-center text-accent hover:text-primary font-medium transition-colors group">
+                    <i class="fas fa-arrow-left mr-2 transform group-hover:-translate-x-1 transition-transform"></i> 
+                    Back to Homepage
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-neutral-100 py-10 text-center text-sm text-neutral-400">
         <p>&copy; <span id="current-year"></span> Zisen Kong. All rights reserved.</p>
     </footer>
 
     <script>
-        // Update copyright year
         document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
     <script src="../script.js"></script>
