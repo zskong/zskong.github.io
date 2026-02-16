@@ -10,7 +10,8 @@
     "links": {
       "pdf": "",
       "code": "https://github.com/zskong/ARIA"
-    },
+    }
+  },
   {
     "title": "Disentangled Contrastive Multi-view Clustering via Semantic Relevance Invariance",
     "authors": "Pengyuan Li, Dongxia Chang#, Yiming Wang, <strong>Zisen Kong</strong>, Linhua Kong, Yao Zhao",
