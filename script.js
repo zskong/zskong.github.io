@@ -115,9 +115,12 @@ async function loadPublications() {
             const ccfClass = pub.ccf ? (ccfStyles[pub.ccf] || ccfStyles['N']) : ccfStyles['N'];
             const borderClass = typeBorderStyles[pub.type] || typeBorderStyles['preprint'];
             
+            // 🌟 强高亮样式：加粗 + 深色主色调 + 底部虚线下划线（更具学术感）
+            const highlightStyle = 'font-bold text-primary underline decoration-neutral-400 underline-offset-4';
+            
             const authorsHtml = pub.authors
-                .replace('Zisen Kong', '<strong>Zisen Kong</strong>')
-                .replace('孔子森', '<strong>孔子森</strong>');
+                .replace('Zisen Kong', `<span class="${highlightStyle}">Zisen Kong</span>`)
+                .replace('孔子森', `<span class="${highlightStyle}">孔子森</span>`);
 
             const safeBibtex = pub.bibtex ? pub.bibtex.replace(/"/g, '&quot;').replace(/>/g, '&gt;').replace(/</g, '&lt;') : 'No BibTeX provided for this publication.';
             const scholarLink = `https://scholar.google.com/scholar?q=${encodeURIComponent(pub.title)}`;
