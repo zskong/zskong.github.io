@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /**
- * 加载论文逻辑 - 支持多色 CCF 标签与分类显示
+ * 加载论文逻辑 - 美化版带 Cite 按钮
  */
 async function loadPublications() {
     // 自动适配路径
@@ -76,12 +76,19 @@ async function loadPublications() {
 
     if (!containers.journal && !containers.conference && !containers.preprint) return;
 
-    // CCF 颜色配置映射
+    // CCF 颜色配置映射 (用于 Venue 标签背景)
     const ccfStyles = {
-        'A': 'bg-red-50 text-red-600 border-red-100',
-        'B': 'bg-blue-50 text-blue-600 border-blue-100',
-        'C': 'bg-green-50 text-green-600 border-green-100',
-        'N': 'bg-neutral-50 text-neutral-600 border-neutral-100'
+        'A': 'bg-red-50 text-red-700 border-red-200/60',
+        'B': 'bg-blue-50 text-blue-700 border-blue-200/60',
+        'C': 'bg-green-50 text-green-700 border-green-200/60',
+        'N': 'bg-neutral-50 text-neutral-700 border-neutral-200/60'
+    };
+
+    // 不同类别的侧边框交互颜色
+    const typeBorderStyles = {
+        journal: 'border-accent/40 hover:border-accent',
+        conference: 'border-blue-400/40 hover:border-blue-500',
+        preprint: 'border-slate-300 hover:border-slate-500'
     };
 
     try {
@@ -89,37 +96,100 @@ async function loadPublications() {
         if (!response.ok) throw new Error('Publications JSON not found');
         const pubs = await response.json();
 
-        // 清空容器
+        // 清空容器，移除 loading 提示
         Object.values(containers).forEach(c => { if(c) c.innerHTML = ''; });
 
         pubs.forEach(pub => {
             const target = containers[pub.type];
             if (!target) return;
 
-            // 获取对应的 CCF 样式
-            const ccfClass = ccfStyles[pub.ccf] || ccfStyles['N'];
+            // 获取对应的样式
+            const ccfClass = pub.ccf ? (ccfStyles[pub.ccf] || ccfStyles['N']) : ccfStyles['N'];
+            const borderClass = typeBorderStyles[pub.type] || typeBorderStyles['preprint'];
+            
+            // 自动加粗自己的名字 (注意中英文字符的匹配)
+            const authorsHtml = pub.authors
+                .replace('Zisen Kong', '<strong>Zisen Kong</strong>')
+                .replace('孔子森', '<strong>孔子森</strong>');
+
+            // 如果没有配置 bibtex 字段，提供一个默认的占位提示
+            const bibtexContent = pub.bibtex ? pub.bibtex.replace(/'/g, "&apos;").replace(/"/g, "&quot;") : `No BibTeX available for: ${pub.title}`;
 
             const html = `
-                <div class="pub-item group relative pl-4 border-l-2 border-transparent hover:border-accent transition-all mb-10 text-justify">
-                    <h4 class="text-lg font-bold text-primary group-hover:text-accent transition-colors leading-tight mb-1.5">
+                <div class="pub-item relative pl-4 border-l-2 ${borderClass} transition-all duration-300 mb-6">
+                    <h4 class="text-lg font-medium text-primary mb-1.5 leading-snug">
                         ${pub.title}
                     </h4>
-                    <p class="text-sm text-neutral-600 mt-1 font-medium">${pub.authors}</p>
-                    <div class="flex flex-wrap items-center gap-2 mt-2">
-                        <span class="text-xs italic text-neutral-500 font-serif">${pub.venue}, ${pub.year}</span>
-                        ${pub.ccf ? `<span class="text-[9px] font-bold ${ccfClass} border px-1.5 py-0.5 rounded">CCF-${pub.ccf}</span>` : ''}
-                        ${pub.jcr ? `<span class="text-[9px] font-bold bg-amber-50 text-amber-600 border border-amber-200 px-1.5 py-0.5 rounded">JCR-${pub.jcr}</span>` : ''}
+                    <p class="text-sm text-neutral-600 mb-2.5 font-light">${authorsHtml}</p>
+                    
+                    <div class="flex flex-wrap items-center gap-2 mb-3">
+                        <span class="text-[11px] font-bold ${ccfClass} border px-2.5 py-0.5 rounded shadow-sm ${pub.type === 'journal' ? 'italic' : ''}">
+                            ${pub.venue} ${pub.ccf ? `(CCF-${pub.ccf})` : ''}
+                        </span>
+                        <span class="text-[11px] font-medium bg-neutral-100 text-neutral-600 border border-neutral-200 px-2 py-0.5 rounded">
+                            ${pub.year}
+                        </span>
+                        ${pub.jcr ? `<span class="text-[11px] font-bold bg-amber-50 text-amber-600 border border-amber-200/60 px-2.5 py-0.5 rounded shadow-sm">JCR-${pub.jcr}</span>` : ''}
                     </div>
-                    <div class="flex gap-2 mt-3">
-                        ${pub.links?.pdf ? `<a href="${pub.links.pdf}" target="_blank" class="text-[10px] font-bold px-2 py-0.5 rounded bg-neutral-100 text-neutral-600 hover:bg-primary hover:text-white transition-all"><i class="fas fa-file-pdf mr-1"></i> PDF</a>` : ''}
-                        ${pub.links?.code ? `<a href="${pub.links.code}" target="_blank" class="text-[10px] font-bold px-2 py-0.5 rounded bg-neutral-100 text-neutral-600 hover:bg-primary hover:text-white transition-all"><i class="fab fa-github mr-1"></i> Code</a>` : ''}
-                        ${pub.links?.project ? `<a href="${pub.links.project}" target="_blank" class="text-[10px] font-bold px-2 py-0.5 rounded bg-neutral-100 text-neutral-600 hover:bg-primary hover:text-white transition-all"><i class="fas fa-globe mr-1"></i> Project</a>` : ''}
+                    
+                    <div class="flex flex-wrap gap-4 mt-2">
+                        ${pub.links?.pdf ? `<a href="${pub.links.pdf}" target="_blank" class="text-xs font-medium text-blue-600 hover:text-blue-800 transition-colors flex items-center"><i class="fas fa-file-pdf mr-1.5"></i>PDF</a>` : ''}
+                        ${pub.links?.code ? `<a href="${pub.links.code}" target="_blank" class="text-xs font-medium text-neutral-700 hover:text-primary transition-colors flex items-center"><i class="fab fa-github mr-1.5"></i>Code</a>` : ''}
+                        ${pub.links?.project ? `<a href="${pub.links.project}" target="_blank" class="text-xs font-medium text-emerald-600 hover:text-emerald-800 transition-colors flex items-center"><i class="fas fa-globe mr-1.5"></i>Project</a>` : ''}
+                        
+                        <button onclick="copyBibtex(this, '${bibtexContent}')" class="text-xs font-medium text-accent hover:text-accent-dark transition-colors flex items-center cursor-pointer">
+                            <i class="fas fa-quote-right mr-1.5"></i><span class="cite-text">Cite</span>
+                        </button>
                     </div>
                 </div>`;
             target.insertAdjacentHTML('beforeend', html);
         });
     } catch (error) {
         console.error('Pub load error:', error);
+    }
+}
+
+/**
+ * 复制 BibTeX 逻辑 (用于 Cite 按钮)
+ */
+window.copyBibtex = function(button, text) {
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(() => {
+            showCopiedFeedback(button);
+        });
+    } else {
+        // Fallback for older browsers or local files without https
+        let textArea = document.createElement("textarea");
+        textArea.value = text;
+        textArea.style.position = "fixed";
+        textArea.style.left = "-999999px";
+        textArea.style.top = "-999999px";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        try {
+            document.execCommand('copy');
+            showCopiedFeedback(button);
+        } catch (err) {
+            alert('BibTeX:\n\n' + text);
+        }
+        textArea.remove();
+    }
+}
+
+function showCopiedFeedback(button) {
+    const textSpan = button.querySelector('.cite-text');
+    if(textSpan) {
+        const originalText = textSpan.innerText;
+        textSpan.innerText = 'Copied!';
+        button.classList.add('text-green-600');
+        button.classList.remove('text-accent');
+        
+        setTimeout(() => {
+            textSpan.innerText = originalText;
+            button.classList.remove('text-green-600');
+            button.classList.add('text-accent');
+        }, 2000);
     }
 }
 
@@ -168,6 +238,7 @@ function renderNewsItems(newsData, containerId) {
         </div>
     `).join('');
 }
+
 /**
  * 加载荣誉逻辑
  */
