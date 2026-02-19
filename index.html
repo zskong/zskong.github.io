@@ -546,8 +546,36 @@
             </p>
         </div>
     </footer>
+ 
+    <div id="bibtex-modal" class="hidden fixed inset-0 z-[100] bg-foreground/50 backdrop-blur-sm items-center justify-center p-4 transition-opacity duration-300">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-2xl overflow-hidden transform transition-all">
+            <div class="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50">
+                <h3 class="text-lg font-serif font-bold text-primary flex items-center">
+                    <i class="fas fa-quote-right text-accent mr-2"></i> Citation
+                </h3>
+                <button onclick="closeBibtexModal()" class="text-neutral-400 hover:text-red-500 transition-colors">
+                    <i class="fas fa-times text-lg"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <div class="bg-neutral-800 rounded-lg p-4 overflow-x-auto relative group">
+                    <pre><code id="bibtex-code" class="text-sm font-mono text-neutral-200 whitespace-pre-wrap word-break"></code></pre>
+                </div>
+            </div>
+            <div class="px-6 py-4 border-t border-neutral-100 bg-neutral-50/50 flex justify-end">
+                <button onclick="closeBibtexModal()" class="px-4 py-2 text-sm font-medium text-neutral-600 hover:text-primary transition-colors mr-3">
+                    Close
+                </button>
+                <button onclick="copyBibtexFromModal(this)" class="px-4 py-2 text-sm font-medium text-white bg-primary hover:bg-neutral-800 rounded-lg shadow-sm transition-colors flex items-center">
+                    <i class="far fa-copy mr-2"></i> <span class="copy-text">Copy to Clipboard</span>
+                </button>
+            </div>
+        </div>
+    </div>
 
+    
     <script src="script.js"></script>
 </body>
 </html>
+
 
