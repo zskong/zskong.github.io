@@ -122,9 +122,10 @@ async function loadPublications() {
             const safeBibtex = pub.bibtex ? pub.bibtex.replace(/"/g, '&quot;').replace(/>/g, '&gt;').replace(/</g, '&lt;') : 'No BibTeX provided for this publication.';
             const scholarLink = `https://scholar.google.com/scholar?q=${encodeURIComponent(pub.title)}`;
 
+            // 🌟 修改点：将 sm:w-48 改为了 sm:w-1/3 md:w-[32%]，让图片占据左侧约三分之一的屏幕空间
             const imageHtml = pub.image 
-                ? `<div class="w-full sm:w-48 flex-shrink-0 pt-1">
-                       <img src="${pub.image}" alt="Teaser" class="w-full h-auto rounded-lg shadow-sm border border-neutral-200 object-cover hover:shadow-md transition-shadow duration-300">
+                ? `<div class="w-full sm:w-1/3 md:w-[32%] flex-shrink-0 mt-1.5">
+                       <img src="${pub.image}" alt="Teaser" class="w-full h-auto object-cover rounded-xl shadow-md border border-neutral-200/80 hover:shadow-lg hover:scale-[1.02] transition-all duration-300">
                    </div>` : '';
 
             const descHtml = pub.description
@@ -139,7 +140,7 @@ async function loadPublications() {
 
             const html = `
                 <div class="pub-item relative pl-4 border-l-2 ${borderClass} transition-all duration-300 mb-8 group">
-                    <div class="flex flex-col sm:flex-row gap-5 items-start">
+                    <div class="flex flex-col sm:flex-row gap-6 sm:gap-8 items-start">
                         ${imageHtml}
                         <div class="flex-1 min-w-0">
                             <h4 class="text-lg font-medium text-primary mb-1.5 leading-snug group-hover:text-accent transition-colors">
