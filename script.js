@@ -125,12 +125,13 @@ async function loadPublications() {
             const safeBibtex = pub.bibtex ? pub.bibtex.replace(/"/g, '&quot;').replace(/>/g, '&gt;').replace(/</g, '&lt;') : 'No BibTeX provided for this publication.';
             const scholarLink = `https://scholar.google.com/scholar?q=${encodeURIComponent(pub.title)}`;
 
-            // 🌟 修改点：将 sm:w-48 改为了 sm:w-1/3 md:w-[32%]，让图片占据左侧约三分之一的屏幕空间
+           // 🌟 1. 处理图片 (让图片支持全高拉伸 object-cover) 🌟
             const imageHtml = pub.image 
-                ? `<div class="w-full sm:w-1/3 md:w-[40%] flex-shrink-0 mt-1.5">
-                       <img src="${pub.image}" alt="Teaser" class="w-full h-auto object-cover rounded-xl shadow-md border border-neutral-200/80 hover:shadow-lg hover:scale-[1.02] transition-all duration-300">
+                ? `<div class="w-full sm:w-1/3 md:w-[32%] flex-shrink-0 flex">
+                       <img src="${pub.image}" alt="Teaser" class="w-full h-52 sm:h-full object-cover rounded-xl shadow-md border border-neutral-200/80 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 origin-center">
                    </div>` : '';
 
+            // 🌟 2. 处理简述 🌟
             const descHtml = pub.description
                 ? `<div class="mt-2 mb-3 bg-neutral-50 rounded-md p-2.5 border border-neutral-100/80">
                        <p class="text-[13px] text-neutral-600 text-justify leading-relaxed">
@@ -138,14 +139,16 @@ async function loadPublications() {
                        </p>
                    </div>` : '';
 
-            // 为当前文章生成一个专属的 ID 标识
             const citeSpanId = `cite-count-${pub.type}-${index}`;
 
+            // 🌟 3. 核心布局优化：加入 items-stretch 和 mt-auto 🌟
             const html = `
                 <div class="pub-item relative pl-4 border-l-2 ${borderClass} transition-all duration-300 mb-8 group">
-                    <div class="flex flex-col sm:flex-row gap-6 sm:gap-8 items-start">
+                    <div class="flex flex-col sm:flex-row gap-6 sm:gap-8 items-stretch">
+                        
                         ${imageHtml}
-                        <div class="flex-1 min-w-0">
+                        
+                        <div class="flex-1 min-w-0 flex flex-col py-1">
                             <h4 class="text-lg font-medium text-primary mb-1.5 leading-snug group-hover:text-accent transition-colors">
                                 ${pub.title}
                             </h4>
@@ -168,7 +171,7 @@ async function loadPublications() {
                             
                             ${descHtml}
                             
-                            <div class="flex flex-wrap gap-4 mt-1">
+                            <div class="flex flex-wrap gap-4 mt-auto pt-2">
                                 ${pub.links?.pdf ? `<a href="${pub.links.pdf}" target="_blank" class="text-xs font-medium text-blue-600 hover:text-blue-800 transition-colors flex items-center"><i class="fas fa-file-pdf mr-1.5"></i>PDF</a>` : ''}
                                 ${pub.links?.code ? `<a href="${pub.links.code}" target="_blank" class="text-xs font-medium text-neutral-700 hover:text-primary transition-colors flex items-center"><i class="fab fa-github mr-1.5"></i>Code</a>` : ''}
                                 ${pub.links?.project ? `<a href="${pub.links.project}" target="_blank" class="text-xs font-medium text-emerald-600 hover:text-emerald-800 transition-colors flex items-center"><i class="fas fa-globe mr-1.5"></i>Project</a>` : ''}
