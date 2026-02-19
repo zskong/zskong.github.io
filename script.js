@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /**
  * ==========================================
- * 论文加载与渲染逻辑 (含 Cite 弹窗与 Scholar)
+ * 论文加载与渲染逻辑 (新增：图片与 TL;DR 简述)
  * ==========================================
  */
 async function loadPublications() {
@@ -87,7 +87,6 @@ async function loadPublications() {
 
     if (!containers.journal && !containers.conference && !containers.preprint) return;
 
-    // CCF 与 JCR 颜色配置映射
     const ccfStyles = {
         'A': 'bg-red-50 text-red-700 border-red-200/60',
         'B': 'bg-blue-50 text-blue-700 border-blue-200/60',
@@ -106,7 +105,6 @@ async function loadPublications() {
         if (!response.ok) throw new Error('Publications JSON not found');
         const pubs = await response.json();
 
-        // 清空容器（移除 loading 提示）
         Object.values(containers).forEach(c => { if(c) c.innerHTML = ''; });
 
         pubs.forEach(pub => {
@@ -116,46 +114,65 @@ async function loadPublications() {
             const ccfClass = pub.ccf ? (ccfStyles[pub.ccf] || ccfStyles['N']) : ccfStyles['N'];
             const borderClass = typeBorderStyles[pub.type] || typeBorderStyles['preprint'];
             
-            // 自动加粗自己的名字
             const authorsHtml = pub.authors
                 .replace('Zisen Kong', '<strong>Zisen Kong</strong>')
                 .replace('孔子森', '<strong>孔子森</strong>');
 
-            // 格式化 BibTeX 为安全字符串，存入 data 属性
             const safeBibtex = pub.bibtex ? pub.bibtex.replace(/"/g, '&quot;').replace(/>/g, '&gt;').replace(/</g, '&lt;') : 'No BibTeX provided for this publication.';
-            
-            // 自动生成 Google Scholar 搜索链接
             const scholarLink = `https://scholar.google.com/scholar?q=${encodeURIComponent(pub.title)}`;
 
+            // 🌟 1. 处理图片 (如果 JSON 中有 pub.image 则渲染左侧图块) 🌟
+            const imageHtml = pub.image 
+                ? `<div class="w-full sm:w-48 flex-shrink-0 pt-1">
+                       <img src="${pub.image}" alt="Teaser for ${pub.title}" class="w-full h-auto rounded-lg shadow-sm border border-neutral-200 object-cover hover:shadow-md transition-shadow duration-300">
+                   </div>` 
+                : '';
+
+            // 🌟 2. 处理简述 (如果 JSON 中有 pub.description 则渲染 TL;DR 框) 🌟
+            const descHtml = pub.description
+                ? `<div class="mt-2 mb-3 bg-neutral-50 rounded-md p-2.5 border border-neutral-100/80">
+                       <p class="text-[13px] text-neutral-600 text-justify leading-relaxed">
+                           <span class="font-bold text-accent-dark mr-1">TL;DR:</span>${pub.description}
+                       </p>
+                   </div>`
+                : '';
+
             const html = `
-                <div class="pub-item relative pl-4 border-l-2 ${borderClass} transition-all duration-300 mb-6">
-                    <h4 class="text-lg font-medium text-primary mb-1.5 leading-snug">
-                        ${pub.title}
-                    </h4>
-                    <p class="text-sm text-neutral-600 mb-2.5 font-light">${authorsHtml}</p>
-                    
-                    <div class="flex flex-wrap items-center gap-2 mb-3">
-                        <span class="text-[11px] font-bold ${ccfClass} border px-2.5 py-0.5 rounded shadow-sm ${pub.type === 'journal' ? 'italic' : ''}">
-                            ${pub.venue} ${pub.ccf ? `(CCF-${pub.ccf})` : ''}
-                        </span>
-                        <span class="text-[11px] font-medium bg-neutral-100 text-neutral-600 border border-neutral-200 px-2 py-0.5 rounded">
-                            ${pub.year}
-                        </span>
-                        ${pub.jcr ? `<span class="text-[11px] font-bold bg-amber-50 text-amber-600 border border-amber-200/60 px-2.5 py-0.5 rounded shadow-sm">JCR-${pub.jcr}</span>` : ''}
-                    </div>
-                    
-                    <div class="flex flex-wrap gap-4 mt-2">
-                        ${pub.links?.pdf ? `<a href="${pub.links.pdf}" target="_blank" class="text-xs font-medium text-blue-600 hover:text-blue-800 transition-colors flex items-center"><i class="fas fa-file-pdf mr-1.5"></i>PDF</a>` : ''}
-                        ${pub.links?.code ? `<a href="${pub.links.code}" target="_blank" class="text-xs font-medium text-neutral-700 hover:text-primary transition-colors flex items-center"><i class="fab fa-github mr-1.5"></i>Code</a>` : ''}
-                        ${pub.links?.project ? `<a href="${pub.links.project}" target="_blank" class="text-xs font-medium text-emerald-600 hover:text-emerald-800 transition-colors flex items-center"><i class="fas fa-globe mr-1.5"></i>Project</a>` : ''}
-                        
-                        <button onclick="openBibtexModal(this)" data-bibtex="${safeBibtex}" class="text-xs font-medium text-accent hover:text-accent-dark transition-colors flex items-center cursor-pointer">
-                            <i class="fas fa-quote-right mr-1.5"></i>Cite
-                        </button>
-                        
-                        <a href="${scholarLink}" target="_blank" class="text-xs font-medium text-indigo-500 hover:text-indigo-700 transition-colors flex items-center">
-                            <i class="fas fa-graduation-cap mr-1.5"></i>Scholar
-                        </a>
+                <div class="pub-item relative pl-4 border-l-2 ${borderClass} transition-all duration-300 mb-8 group">
+                    <div class="flex flex-col sm:flex-row gap-5 items-start">
+                        ${imageHtml}
+                        <div class="flex-1 min-w-0">
+                            <h4 class="text-lg font-medium text-primary mb-1.5 leading-snug group-hover:text-accent transition-colors">
+                                ${pub.title}
+                            </h4>
+                            <p class="text-sm text-neutral-600 mb-2.5 font-light">${authorsHtml}</p>
+                            
+                            <div class="flex flex-wrap items-center gap-2 mb-3">
+                                <span class="text-[11px] font-bold ${ccfClass} border px-2.5 py-0.5 rounded shadow-sm ${pub.type === 'journal' ? 'italic' : ''}">
+                                    ${pub.venue} ${pub.ccf ? `(CCF-${pub.ccf})` : ''}
+                                </span>
+                                <span class="text-[11px] font-medium bg-neutral-100 text-neutral-600 border border-neutral-200 px-2 py-0.5 rounded">
+                                    ${pub.year}
+                                </span>
+                                ${pub.jcr ? `<span class="text-[11px] font-bold bg-amber-50 text-amber-600 border border-amber-200/60 px-2.5 py-0.5 rounded shadow-sm">JCR-${pub.jcr}</span>` : ''}
+                            </div>
+                            
+                            ${descHtml}
+                            
+                            <div class="flex flex-wrap gap-4 mt-1">
+                                ${pub.links?.pdf ? `<a href="${pub.links.pdf}" target="_blank" class="text-xs font-medium text-blue-600 hover:text-blue-800 transition-colors flex items-center"><i class="fas fa-file-pdf mr-1.5"></i>PDF</a>` : ''}
+                                ${pub.links?.code ? `<a href="${pub.links.code}" target="_blank" class="text-xs font-medium text-neutral-700 hover:text-primary transition-colors flex items-center"><i class="fab fa-github mr-1.5"></i>Code</a>` : ''}
+                                ${pub.links?.project ? `<a href="${pub.links.project}" target="_blank" class="text-xs font-medium text-emerald-600 hover:text-emerald-800 transition-colors flex items-center"><i class="fas fa-globe mr-1.5"></i>Project</a>` : ''}
+                                
+                                <button onclick="openBibtexModal(this)" data-bibtex="${safeBibtex}" class="text-xs font-medium text-accent hover:text-accent-dark transition-colors flex items-center cursor-pointer">
+                                    <i class="fas fa-quote-right mr-1.5"></i>Cite
+                                </button>
+                                
+                                <a href="${scholarLink}" target="_blank" class="text-xs font-medium text-indigo-500 hover:text-indigo-700 transition-colors flex items-center">
+                                    <i class="fas fa-graduation-cap mr-1.5"></i>Scholar
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>`;
             target.insertAdjacentHTML('beforeend', html);
@@ -164,7 +181,6 @@ async function loadPublications() {
         console.error('Pub load error:', error);
     }
 }
-
 /**
  * ==========================================
  * BibTeX 弹窗控制与复制逻辑
