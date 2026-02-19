@@ -13,7 +13,7 @@
       "pdf": "",
       "code": "https://github.com/zskong/ARIA"
     },
-    "bibtex": "@article{kong2026tensorized, \n  title={Tensorial Multi-view Clustering via Alternative Rank Minimization and Inter-view Alignment},\n  author={Kong, Zisen, Chang, Dongxia, Wang Yiming, Li pengyuan and Zhao Yao},\n  journal={IEEE TKDE},\n  year={2026}\n}"
+    "bibtex": "@article{kong2026tensorized, \n  title={Tensorial Multi-view Clustering via Alternative Rank Minimization and Inter-view Alignment},\n  author={Kong, Zisen, Chang, Dongxia, Wang Yiming, Li pengyuan and Zhao Yao},\n  journal={IEEE Transactions on Knowledge and Data Engineering},\n  year={2026}\n}"
   },
   {
     "title": "Disentangled Contrastive Multi-view Clustering via Semantic Relevance Invariance",
