@@ -124,7 +124,7 @@ async function loadPublications() {
 
             // 🌟 修改点：将 sm:w-48 改为了 sm:w-1/3 md:w-[32%]，让图片占据左侧约三分之一的屏幕空间
             const imageHtml = pub.image 
-                ? `<div class="w-full sm:w-1/3 md:w-[32%] flex-shrink-0 mt-1.5">
+                ? `<div class="w-full sm:w-1/3 md:w-[40%] flex-shrink-0 mt-1.5">
                        <img src="${pub.image}" alt="Teaser" class="w-full h-auto object-cover rounded-xl shadow-md border border-neutral-200/80 hover:shadow-lg hover:scale-[1.02] transition-all duration-300">
                    </div>` : '';
 
