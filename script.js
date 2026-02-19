@@ -107,7 +107,8 @@ async function loadPublications() {
 
         Object.values(containers).forEach(c => { if(c) c.innerHTML = ''; });
 
-        pubs.forEach(pub => {
+        // 🌟 注意这里加入了 index，用来给每个引用次数标签生成唯一的 ID
+        pubs.forEach((pub, index) => {
             const target = containers[pub.type];
             if (!target) return;
 
@@ -121,21 +122,20 @@ async function loadPublications() {
             const safeBibtex = pub.bibtex ? pub.bibtex.replace(/"/g, '&quot;').replace(/>/g, '&gt;').replace(/</g, '&lt;') : 'No BibTeX provided for this publication.';
             const scholarLink = `https://scholar.google.com/scholar?q=${encodeURIComponent(pub.title)}`;
 
-            // 🌟 1. 处理图片 (如果 JSON 中有 pub.image 则渲染左侧图块) 🌟
             const imageHtml = pub.image 
                 ? `<div class="w-full sm:w-48 flex-shrink-0 pt-1">
-                       <img src="${pub.image}" alt="Teaser for ${pub.title}" class="w-full h-auto rounded-lg shadow-sm border border-neutral-200 object-cover hover:shadow-md transition-shadow duration-300">
-                   </div>` 
-                : '';
+                       <img src="${pub.image}" alt="Teaser" class="w-full h-auto rounded-lg shadow-sm border border-neutral-200 object-cover hover:shadow-md transition-shadow duration-300">
+                   </div>` : '';
 
-            // 🌟 2. 处理简述 (如果 JSON 中有 pub.description 则渲染 TL;DR 框) 🌟
             const descHtml = pub.description
                 ? `<div class="mt-2 mb-3 bg-neutral-50 rounded-md p-2.5 border border-neutral-100/80">
                        <p class="text-[13px] text-neutral-600 text-justify leading-relaxed">
                            <span class="font-bold text-accent-dark mr-1">TL;DR:</span>${pub.description}
                        </p>
-                   </div>`
-                : '';
+                   </div>` : '';
+
+            // 为当前文章生成一个专属的 ID 标识
+            const citeSpanId = `cite-count-${pub.type}-${index}`;
 
             const html = `
                 <div class="pub-item relative pl-4 border-l-2 ${borderClass} transition-all duration-300 mb-8 group">
@@ -155,6 +155,11 @@ async function loadPublications() {
                                     ${pub.year}
                                 </span>
                                 ${pub.jcr ? `<span class="text-[11px] font-bold bg-amber-50 text-amber-600 border border-amber-200/60 px-2.5 py-0.5 rounded shadow-sm">JCR-${pub.jcr}</span>` : ''}
+                                
+                                <span class="text-[11px] font-bold bg-indigo-50 text-indigo-700 border border-indigo-200/60 px-2 py-0.5 rounded shadow-sm flex items-center">
+                                    <i class="fas fa-chart-line mr-1.5 opacity-80"></i>
+                                    <span id="${citeSpanId}"><i class="fas fa-spinner fa-spin text-[10px]"></i></span>
+                                </span>
                             </div>
                             
                             ${descHtml}
@@ -176,6 +181,9 @@ async function loadPublications() {
                     </div>
                 </div>`;
             target.insertAdjacentHTML('beforeend', html);
+
+            // 🌟 异步拉取该文章的引用次数 🌟
+            fetchCitationCount(pub.title, citeSpanId);
         });
     } catch (error) {
         console.error('Pub load error:', error);
@@ -368,4 +376,36 @@ function makeAllLinksOpenInNewTab() {
 function setupLinkObserver() {
     const observer = new MutationObserver(() => makeAllLinksOpenInNewTab());
     observer.observe(document.body, { childList: true, subtree: true });
+}
+
+
+/**
+ * 🌟 新增：调用 Semantic Scholar API 获取引用次数
+ */
+async function fetchCitationCount(title, elementId) {
+    try {
+        // 对标题进行编码，拼接 API 请求
+        const query = encodeURIComponent(title);
+        // Semantic Scholar free API endpoint
+        const url = `https://api.semanticscholar.org/graph/v1/paper/search?query=${query}&fields=citationCount&limit=1`;
+        
+        const response = await fetch(url);
+        const data = await response.json();
+        
+        const el = document.getElementById(elementId);
+        if (!el) return;
+
+        // 如果找到了文章且有 citationCount 数据
+        if (data.data && data.data.length > 0 && data.data[0].citationCount !== undefined) {
+            const count = data.data[0].citationCount;
+            el.innerHTML = `${count} Citations`;
+        } else {
+            // 没找到则默认显示 0 或者隐藏
+            el.innerHTML = `0 Citations`; 
+        }
+    } catch (error) {
+        console.error('Failed to fetch citation count for:', title, error);
+        const el = document.getElementById(elementId);
+        if (el) el.innerHTML = `Citations`; // 拉取失败时优雅降级
+    }
 }
