@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // 初始化基础辅助功能
+    // 1. 初始化基础辅助功能
     makeAllLinksOpenInNewTab();
     setupLinkObserver();
 
-    // 1. 移动端菜单切换逻辑
+    // 2. 移动端菜单切换逻辑
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     if (mobileMenuBtn && mobileMenu) {
@@ -13,12 +13,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 2. 异步加载数据
+    // 3. 异步加载数据
     loadPublications();
     loadNews();
     loadHonors();
 
-    // 3. 导航栏平滑滚动
+    // 4. 导航栏平滑滚动
     const navLinks = document.querySelectorAll('.nav-links a, .mobile-nav-item');
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // 4. 滚动监听：自动高亮当前导航项
+    // 5. 滚动监听：自动高亮当前导航项
     window.addEventListener('scroll', function() {
         let current = '';
         const sections = document.querySelectorAll('section[id]');
@@ -58,13 +58,24 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // 6. 监听点击弹窗外部半透明蒙层关闭弹窗
+    const modal = document.getElementById('bibtex-modal');
+    if(modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeBibtexModal();
+            }
+        });
+    }
 });
 
 /**
- * 加载论文逻辑 - 美化版带 Cite 按钮
+ * ==========================================
+ * 论文加载与渲染逻辑 (含 Cite 弹窗与 Scholar)
+ * ==========================================
  */
 async function loadPublications() {
-    // 自动适配路径
     const isSubPage = window.location.pathname.includes('/pages/') || window.location.pathname.includes('/docs/');
     const path = isSubPage ? '../data/publications.json' : 'data/publications.json';
 
@@ -76,7 +87,7 @@ async function loadPublications() {
 
     if (!containers.journal && !containers.conference && !containers.preprint) return;
 
-    // CCF 颜色配置映射 (用于 Venue 标签背景)
+    // CCF 与 JCR 颜色配置映射
     const ccfStyles = {
         'A': 'bg-red-50 text-red-700 border-red-200/60',
         'B': 'bg-blue-50 text-blue-700 border-blue-200/60',
@@ -84,7 +95,6 @@ async function loadPublications() {
         'N': 'bg-neutral-50 text-neutral-700 border-neutral-200/60'
     };
 
-    // 不同类别的侧边框交互颜色
     const typeBorderStyles = {
         journal: 'border-accent/40 hover:border-accent',
         conference: 'border-blue-400/40 hover:border-blue-500',
@@ -96,24 +106,26 @@ async function loadPublications() {
         if (!response.ok) throw new Error('Publications JSON not found');
         const pubs = await response.json();
 
-        // 清空容器，移除 loading 提示
+        // 清空容器（移除 loading 提示）
         Object.values(containers).forEach(c => { if(c) c.innerHTML = ''; });
 
         pubs.forEach(pub => {
             const target = containers[pub.type];
             if (!target) return;
 
-            // 获取对应的样式
             const ccfClass = pub.ccf ? (ccfStyles[pub.ccf] || ccfStyles['N']) : ccfStyles['N'];
             const borderClass = typeBorderStyles[pub.type] || typeBorderStyles['preprint'];
             
-            // 自动加粗自己的名字 (注意中英文字符的匹配)
+            // 自动加粗自己的名字
             const authorsHtml = pub.authors
                 .replace('Zisen Kong', '<strong>Zisen Kong</strong>')
                 .replace('孔子森', '<strong>孔子森</strong>');
 
-            // 如果没有配置 bibtex 字段，提供一个默认的占位提示
-            const bibtexContent = pub.bibtex ? pub.bibtex.replace(/'/g, "&apos;").replace(/"/g, "&quot;") : `No BibTeX available for: ${pub.title}`;
+            // 格式化 BibTeX 为安全字符串，存入 data 属性
+            const safeBibtex = pub.bibtex ? pub.bibtex.replace(/"/g, '&quot;').replace(/>/g, '&gt;').replace(/</g, '&lt;') : 'No BibTeX provided for this publication.';
+            
+            // 自动生成 Google Scholar 搜索链接
+            const scholarLink = `https://scholar.google.com/scholar?q=${encodeURIComponent(pub.title)}`;
 
             const html = `
                 <div class="pub-item relative pl-4 border-l-2 ${borderClass} transition-all duration-300 mb-6">
@@ -137,9 +149,13 @@ async function loadPublications() {
                         ${pub.links?.code ? `<a href="${pub.links.code}" target="_blank" class="text-xs font-medium text-neutral-700 hover:text-primary transition-colors flex items-center"><i class="fab fa-github mr-1.5"></i>Code</a>` : ''}
                         ${pub.links?.project ? `<a href="${pub.links.project}" target="_blank" class="text-xs font-medium text-emerald-600 hover:text-emerald-800 transition-colors flex items-center"><i class="fas fa-globe mr-1.5"></i>Project</a>` : ''}
                         
-                        <button onclick="copyBibtex(this, '${bibtexContent}')" class="text-xs font-medium text-accent hover:text-accent-dark transition-colors flex items-center cursor-pointer">
-                            <i class="fas fa-quote-right mr-1.5"></i><span class="cite-text">Cite</span>
+                        <button onclick="openBibtexModal(this)" data-bibtex="${safeBibtex}" class="text-xs font-medium text-accent hover:text-accent-dark transition-colors flex items-center cursor-pointer">
+                            <i class="fas fa-quote-right mr-1.5"></i>Cite
                         </button>
+                        
+                        <a href="${scholarLink}" target="_blank" class="text-xs font-medium text-indigo-500 hover:text-indigo-700 transition-colors flex items-center">
+                            <i class="fas fa-graduation-cap mr-1.5"></i>Scholar
+                        </a>
                     </div>
                 </div>`;
             target.insertAdjacentHTML('beforeend', html);
@@ -150,51 +166,90 @@ async function loadPublications() {
 }
 
 /**
- * 复制 BibTeX 逻辑 (用于 Cite 按钮)
+ * ==========================================
+ * BibTeX 弹窗控制与复制逻辑
+ * ==========================================
  */
-window.copyBibtex = function(button, text) {
+window.openBibtexModal = function(button) {
+    const bibtex = button.getAttribute('data-bibtex');
+    const modal = document.getElementById('bibtex-modal');
+    const codeBlock = document.getElementById('bibtex-code');
+    
+    // 填充代码并显示弹窗
+    if (codeBlock && modal) {
+        codeBlock.innerHTML = bibtex;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        
+        // 禁用页面底层滚动
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+window.closeBibtexModal = function() {
+    const modal = document.getElementById('bibtex-modal');
+    if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        
+        // 恢复页面底层滚动
+        document.body.style.overflow = 'auto';
+        
+        // 还原复制按钮的状态
+        const copyBtns = modal.querySelectorAll('.copy-text');
+        copyBtns.forEach(btn => btn.innerText = 'Copy to Clipboard');
+    }
+}
+
+window.copyBibtexFromModal = function(button) {
+    const codeBlock = document.getElementById('bibtex-code');
+    if (!codeBlock) return;
+    
+    const text = codeBlock.innerText;
+    
     if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(text).then(() => {
-            showCopiedFeedback(button);
+            showModalCopiedFeedback(button);
         });
     } else {
-        // Fallback for older browsers or local files without https
+        // Fallback 方法
         let textArea = document.createElement("textarea");
         textArea.value = text;
         textArea.style.position = "fixed";
         textArea.style.left = "-999999px";
-        textArea.style.top = "-999999px";
         document.body.appendChild(textArea);
         textArea.focus();
         textArea.select();
         try {
             document.execCommand('copy');
-            showCopiedFeedback(button);
+            showModalCopiedFeedback(button);
         } catch (err) {
-            alert('BibTeX:\n\n' + text);
+            alert('Fallback copy failed, please select and copy manually.');
         }
         textArea.remove();
     }
 }
 
-function showCopiedFeedback(button) {
-    const textSpan = button.querySelector('.cite-text');
+function showModalCopiedFeedback(button) {
+    const textSpan = button.querySelector('.copy-text');
     if(textSpan) {
-        const originalText = textSpan.innerText;
-        textSpan.innerText = 'Copied!';
-        button.classList.add('text-green-600');
-        button.classList.remove('text-accent');
+        const originalText = "Copy to Clipboard";
+        textSpan.innerText = 'Copied! ✓';
+        button.classList.add('bg-green-600', 'hover:bg-green-700');
+        button.classList.remove('bg-primary', 'hover:bg-neutral-800');
         
         setTimeout(() => {
             textSpan.innerText = originalText;
-            button.classList.remove('text-green-600');
-            button.classList.add('text-accent');
+            button.classList.remove('bg-green-600', 'hover:bg-green-700');
+            button.classList.add('bg-primary', 'hover:bg-neutral-800');
         }, 2000);
     }
 }
 
 /**
- * 加载新闻逻辑
+ * ==========================================
+ * 加载新闻与荣誉逻辑
+ * ==========================================
  */
 async function loadNews() {
     const isSubPage = window.location.pathname.includes('/pages/') || window.location.pathname.includes('/docs/');
@@ -239,9 +294,6 @@ function renderNewsItems(newsData, containerId) {
     `).join('');
 }
 
-/**
- * 加载荣誉逻辑
- */
 async function loadHonors() {
     const isSubPage = window.location.pathname.includes('/pages/') || window.location.pathname.includes('/docs/');
     const path = isSubPage ? '../data/honors.json' : 'data/honors.json';
@@ -280,7 +332,12 @@ function renderHonorsItems(data, containerId) {
     `).join('');
 }
 
-// 辅助工具：所有外部链接自动新窗口打开
+/**
+ * ==========================================
+ * 辅助工具函数
+ * ==========================================
+ */
+// 所有外部链接自动新窗口打开
 function makeAllLinksOpenInNewTab() {
     document.querySelectorAll('a').forEach(link => {
         const href = link.getAttribute('href');
