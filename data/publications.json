@@ -8,7 +8,7 @@
     "ccf": "A",
     "jcr": "Q1",
     "image": "assets/publication/TKDE_ARIA.png",
-    "description": "We have proposed a completely new non-convex rank function, and theoretically proved that it is one of the most tight rank substitution functions.",
+    "description": "We propose a new non-convex rank function, and theoretically proved that it is one of the most tight rank substitution functions.",
     "links": {
       "pdf": "",
       "code": "https://github.com/zskong/ARIA"
@@ -49,10 +49,14 @@
     "type": "journal",
     "ccf": "B",
     "jcr": "Q1",
+    "image": "assets/publication/25_PR.png",
+    "description": "We propose a simple yet effective dual-space collaborative training strategy.",
     "links": {
       "pdf": "https://www.sciencedirect.com/science/article/pii/S0031320325005047",
       "code": "https://github.com/zskong/DSCMC/tree/main"
-    }
+    },
+    "bibtex": "@article{kong2025dual, \n  title={Dual-space Co-training for Large-scale Multi-view Clustering},\n  author={Kong, Zisen and Fu, Zhiqiang and Chang, Dongxia and Wang, Yiming and Zhao, Yao},\n  journal={Pattern Recognition},\n volume={168},\n pages={111844},\n  year={2025}\n}"
+
   },
   {
     "title": "Association and Consolidation: Evolutionary Memory-Enhanced Incremental Multi-View Clustering",
@@ -60,9 +64,13 @@
     "venue": "arxiv",
     "year": "2026",
     "type": "preprint",
+    "image": "assets/publication/25_arxiv.png",
+    "description": "We propose a brain-inspired incremental learning method to address the challenge of balancing plasticity and stability.",
     "links": {
       "pdf": "https://arxiv.org/abs/2509.14544",
       "code": ""
-    }
+    },
+      "bibtex": "@article{kong2025association, \n  title={Association and Consolidation: Evolutionary Memory-Enhanced Incremental Multi-View Clustering},\n  author={Kong, Zisen and Zhong, Bo and Li, Pengyuan and Chang, Dongxia and Wang, Yiming and Chen, Yongyong},\n  journal={arXiv preprint arXiv:2509.14544},\n  year={2025}\n}"
+
   }
 ]
