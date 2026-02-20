@@ -40,7 +40,7 @@
     "type": "journal",
     "ccf": "C",
     "jcr": "Q2",
-    "image": "assets/publication/25_neu.pdf",
+    "image": "assets/publication/25_neu.png",
     "description": "We propose a coarse-to-fine approach for modeling anchor representation learning.",
     "links": {
       "pdf": "https://www.sciencedirect.com/science/article/pii/S0925231225026256",
