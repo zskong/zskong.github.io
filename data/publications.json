@@ -23,10 +23,14 @@
     "type": "journal",
     "ccf": "A",
     "jcr": "Q1",
+    "image": "assets/publication/TKDE_DMVCS.png",
+    "description": "We propose a decoupled multi-view clustering method based on semantic association invariance to learn unified representations suitable for clustering.",
     "links": {
       "pdf": "https://ieeexplore.ieee.org/document/11359434",
       "code": "https://github.com/Lummer-Li/DMVCS"
-    }
+    },
+     "bibtex": "@article{li2026disentangled, \n  title={Disentangled Contrastive Multi-view Clustering via Semantic Relevance Invariance},\n  author={Li, Pengyuan and Chang, Dongxia and Wang, Yiming and Kong, Zisen and Kong, Linhua and Zhao, Yao},\n  journal={IEEE Transactions on Knowledge and Data Engineering},\n  year={2026}\n}"
+
   },
   {
     "title": "Local geometry-enhanced anchor learning for multi-view clustering",
@@ -36,10 +40,14 @@
     "type": "journal",
     "ccf": "C",
     "jcr": "Q2",
+    "image": "assets/publication/25_neu.pdf",
+    "description": "We propose a coarse-to-fine approach for modeling anchor representation learning.",
     "links": {
       "pdf": "https://www.sciencedirect.com/science/article/pii/S0925231225026256",
       "code": "https://github.com/zskong/LEGAC"
-    }
+    },
+    "bibtex": "@article{kong2025local, \n  title={Local geometry-enhanced anchor learning for multi-view clustering},\n  author={Kong, Zisen and Fu, Zhiqiang and Chang, Dongxia and Wang, Yiming and Li, Pengyuan and Zhao, Yao},\n  journal={Neurocomputing},\n pages={131953},\n  year={2025}\n}"
+
   },
   {
     "title": "Dual-space co-training for large-scale multi-view clustering",
