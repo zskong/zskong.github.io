@@ -10,7 +10,7 @@
     "image": "assets/publication/TKDE_ARIA.png",
     "description": "We propose a new non-convex rank function, and theoretically proved that it is one of the most tight rank substitution functions.",
     "links": {
-      "pdf": "",
+      "pdf": "https://ieeexplore.ieee.org/document/11403957",
       "code": "https://github.com/zskong/ARIA"
     },
     "bibtex": "@article{kong2026tensorized, \n  title={Tensorial Multi-view Clustering via Alternative Rank Minimization and Inter-view Alignment},\n  author={Kong, Zisen, Chang, Dongxia, Wang Yiming, Li pengyuan and Zhao Yao},\n  journal={IEEE Transactions on Knowledge and Data Engineering},\n  year={2026}\n}"
