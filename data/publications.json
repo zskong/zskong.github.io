@@ -1,5 +1,21 @@
 [
   {
+    "title": "ATMCA: Augmented Tensorized Consensus Learning for Multi-view Clustering with Anchor-Aligned",
+    "authors": "Zisen Kong, Pengyuan Li, Dongxia Chang<sup>#</sup>, Yiming Wang, Yao Zhao",
+    "venue": "IEEE Transactions on Multimedia",
+    "year": "2026",
+    "type": "journal",
+    "ccf": "A",
+    "jcr": "Q1",
+    "image": "assets/publication/TMM_ATMCA.png",
+    "description": "We propose a novel method to solve the Anchor-Unaligned Problem(AUP).",
+    "links": {
+      "pdf": "",
+      "code": "https://github.com/zskong/ATMCA"
+    },
+    "bibtex": "@article{kong2026tensorial, \n  title={Tensorial Multi-view Clustering via Alternative Rank Minimization and Inter-view Alignment},\n  author={Kong, Zisen and Chang, Dongxia and Wang, Yiming and Li, Pengyuan and Zhao, Yao},\n  journal={IEEE Transactions on Knowledge and Data Engineering},\n  year={2026}\n}"
+  },
+  {
     "title": "Tensorial Multi-view Clustering via Alternative Rank Minimization and Inter-view Alignment",
     "authors": "Zisen Kong, Dongxia Chang<sup>#</sup>, Yiming Wang, Pengyuan Li, Yao Zhao",
     "venue": "IEEE Transactions on Knowledge and Data Engineering",
@@ -8,7 +24,7 @@
     "ccf": "A",
     "jcr": "Q1",
     "image": "assets/publication/TKDE_ARIA.png",
-    "description": "We propose a new non-convex rank function, and theoretically proved that it is one of the most tight rank substitution functions.",
+    "description": "We propose a new non-convex rank function, and theoretically proved that it is one of the tightest rank substitution functions.",
     "links": {
       "pdf": "https://ieeexplore.ieee.org/document/11403957",
       "code": "https://github.com/zskong/ARIA"
