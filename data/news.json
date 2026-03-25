@@ -1,7 +1,8 @@
 [
+  {"date": "2026-03-25", "content": "Accept to serve as a reviewer for NeurIPS 2026!},
   {"date": "2026-03-17", "content": "One paper is accepted to TMM!", "links": []},
   {"date": "2026-02-20", "content": "Accept to serve as a reviewer for ACM MM 2026!", "links": []},
-  {"date": "2026-02-15", "content": "One paper is accepted to TKDE!", "links": []},
+  {"date": "2026-02-15", "content": "One paper is accepted to TKDE!", "links": [https://ieeexplore.ieee.org/document/11403957]},
   {"date": "2026-01-24", "content": "Accept to serve as a reviewer for ECCV 2026!", "links": []},
   {"date": "2026-01-19", "content": "Accept to serve as a reviewer for ICMR 2026!",  "links": []},
   {"date": "2026-01-17", "content": "One paper is accepted to TKDE!", "links": []},
