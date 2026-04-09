@@ -81,6 +81,6 @@
     },
     "bibtex": "@article{kong2025dual, \n  title={Dual-space Co-training for Large-scale Multi-view Clustering},\n  author={Kong, Zisen and Fu, Zhiqiang and Chang, Dongxia and Wang, Yiming and Zhao, Yao},\n  journal={Pattern Recognition},\n volume={168},\n pages={111844},\n  year={2025}\n}"
 
-  },
+  }
   
 ]
