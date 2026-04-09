@@ -82,19 +82,5 @@
     "bibtex": "@article{kong2025dual, \n  title={Dual-space Co-training for Large-scale Multi-view Clustering},\n  author={Kong, Zisen and Fu, Zhiqiang and Chang, Dongxia and Wang, Yiming and Zhao, Yao},\n  journal={Pattern Recognition},\n volume={168},\n pages={111844},\n  year={2025}\n}"
 
   },
-  {
-    "title": "Association and Consolidation: Evolutionary Memory-Enhanced Incremental Multi-View Clustering",
-    "authors": "Zisen Kong, Bo Zhong, Pengyuan Li, Dongxia Chang<sup>#</sup>, Yiming Wang, Yongyong Chen",
-    "venue": "arxiv",
-    "year": "2026",
-    "type": "preprint",
-    "image": "assets/publication/25_arxiv.png",
-    "description": "We propose a brain-inspired incremental learning method to address the challenge of balancing plasticity and stability.",
-    "links": {
-      "pdf": "https://arxiv.org/abs/2509.14544",
-      "code": ""
-    },
-      "bibtex": "@article{kong2025association, \n  title={Association and Consolidation: Evolutionary Memory-Enhanced Incremental Multi-View Clustering},\n  author={Kong, Zisen and Zhong, Bo and Li, Pengyuan and Chang, Dongxia and Wang, Yiming and Chen, Yongyong},\n  journal={arXiv preprint arXiv:2509.14544},\n  year={2025}\n}"
-
-  }
+  
 ]
