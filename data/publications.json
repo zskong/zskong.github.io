@@ -76,8 +76,8 @@
     "image": "assets/publication/25_PR.png",
     "description": "We propose a simple yet effective dual-space co-training strategy for large-scale multi-view clustering.",
     "links": {
-      "pdf": "https://www.worldscientific.com/doi/abs/10.1142/S1793830921500920",
-    },
+      "pdf": "https://www.worldscientific.com/doi/abs/10.1142/S1793830921500920"
+    }
     
   },
   {
@@ -108,8 +108,8 @@
     "image": "assets/publication/25_PR.png",
     "description": "We propose a simple yet effective dual-space co-training strategy for large-scale multi-view clustering.",
     "links": {
-      "pdf": "https://link.springer.com/article/10.1007/s11042-023-16574-5",
-    },
+      "pdf": "https://link.springer.com/article/10.1007/s11042-023-16574-5"
+    }
     
   },
   {
@@ -125,7 +125,7 @@
     "links": {
       "pdf": "https://dl.acm.org/doi/full/10.1145/3702640",
       "code": "https://github.com/lukanightfever/FDA-YOLO"
-    },
+    }
     
   },
   {
@@ -141,7 +141,7 @@
     "links": {
       "pdf": "https://www.sciencedirect.com/science/article/abs/pii/S0925231225005612",
       "code": "https://github.com/Lummer-Li/DCMVC"
-    },
+    }
     
   },
    {
@@ -157,7 +157,7 @@
     "links": {
       "pdf": "https://www.sciencedirect.com/science/article/abs/pii/S0925231225022003",
       "code": "https://github.com/zhangt-make/BCMVC"
-    },
+    }
     
   },
   {
@@ -190,7 +190,7 @@
     "links": {
       "pdf": "https://ieeexplore.ieee.org/abstract/document/11523464",
       "code": "https://github.com/guihaik/RCAlign"
-    },
+    }
   
   },
 
@@ -207,7 +207,7 @@
     "links": {
       "pdf": "",
       "code": ""
-    },
+    }
   
   }
 ]
