@@ -100,6 +100,18 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.45;
 }
 
+.research-interest-item {
+    display: grid;
+    grid-template-columns: 1rem minmax(0, 1fr);
+    column-gap: 0.6rem;
+    align-items: center;
+}
+
+.research-interest-item i {
+    width: 1rem;
+    text-align: center;
+}
+
 
 .open-source-copy {
     font-family: 'Inter', sans-serif;
