@@ -8,7 +8,7 @@
     "ccf": "A",
     "jcr": "Q1",
     "image": "assets/publication/TMM_ATMCA.png",
-    "description": "We propose a novel method to solve the Anchor-Unaligned Problem(AUP).",
+    "description": "We propose a new method for addressing the anchor-unaligned problem (AUP).",
     "links": {
       "pdf": "",
       "code": "https://github.com/zskong/ATMCA"
@@ -24,7 +24,7 @@
     "ccf": "A",
     "jcr": "Q1",
     "image": "assets/publication/TKDE_ARIA.png",
-    "description": "We propose a new non-convex rank function, and theoretically proved that it is one of the tightest rank substitution functions.",
+    "description": "We propose a non-convex rank surrogate and theoretically show that it is among the tightest rank approximations.",
     "links": {
       "pdf": "https://ieeexplore.ieee.org/document/11403957",
       "code": "https://github.com/zskong/ARIA"
@@ -40,7 +40,7 @@
     "ccf": "A",
     "jcr": "Q1",
     "image": "assets/publication/TKDE_DMVCS.png",
-    "description": "We propose a decoupled multi-view clustering method based on semantic association invariance to learn unified representations suitable for clustering.",
+    "description": "We propose a disentangled multi-view clustering method that learns unified representations through semantic relevance invariance.",
     "links": {
       "pdf": "https://ieeexplore.ieee.org/document/11359434",
       "code": "https://github.com/Lummer-Li/DMVCS"
@@ -57,7 +57,7 @@
     "ccf": "C",
     "jcr": "Q2",
     "image": "assets/publication/25_neu.png",
-    "description": "We propose a coarse-to-fine approach for modeling anchor representation learning.",
+    "description": "We propose a coarse-to-fine strategy for anchor representation learning.",
     "links": {
       "pdf": "https://www.sciencedirect.com/science/article/pii/S0925231225026256",
       "code": "https://github.com/zskong/LEGAC"
@@ -74,7 +74,7 @@
     "ccf": "B",
     "jcr": "Q1",
     "image": "assets/publication/25_PR.png",
-    "description": "We propose a simple yet effective dual-space collaborative training strategy.",
+    "description": "We propose a simple yet effective dual-space co-training strategy for large-scale multi-view clustering.",
     "links": {
       "pdf": "https://www.sciencedirect.com/science/article/pii/S0031320325005047",
       "code": "https://github.com/zskong/DSCMC/tree/main"
