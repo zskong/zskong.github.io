@@ -68,7 +68,7 @@
 
   {
     "title": "Anchor-based Disentanglement Framework for Incremental Multi-view Clustering",
-    "authors": "Bo Zhong, Pengyuan Li, Zisen Kong, Dongxia Chang*, Yiming Wang, and~Yao Zhao",
+    "authors": "Bo Zhong, Pengyuan Li, Zisen Kong, Dongxia Chang<sup>#</sup>, Yiming Wang, and~Yao Zhao",
     "venue": "Neural Networks",
     "year": "2026",
     "type": "journal",
@@ -117,7 +117,7 @@
   },
    {
     "title": "Bipartite contrastive multi-view clustering with singular value modulation",
-    "authors": "Teng Zhang, Pengyuan Li, Zisen Kong, Dongxia Chang, Yao Zhao",
+    "authors": "Teng Zhang, Pengyuan Li, Zisen Kong, Dongxia Chang<sup>#</sup>, Yao Zhao",
     "venue": "Neurocomputing",
     "year": "2025",
     "type": "journal",
