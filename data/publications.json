@@ -66,6 +66,21 @@
 
   },
   {
+    "title": "Projection-preserving block-diagonal low-rank representation for subspace clustering",
+    "authors": "Zisen Kong, Dongxia Chang<sup>#</sup>, Zhiqiang Fu, Jiapeng Wang, Yiming Wang, Yao Zhao",
+    "venue": "Neurocomputing",
+    "year": "2023",
+    "type": "journal",
+    "ccf": "C",
+    "jcr": "Q2",
+    "links": {
+      "pdf": "https://www.sciencedirect.com/science/article/pii/S0925231223000607",
+      "code": "https://github.com/zskong/PBDIR"
+    },
+    "bibtex": "@article{10.1016/j.neucom.2023.01.051, \n  title={Projection-preserving block-diagonal low-rank representation for subspace clustering},\n  author={Kong, Zisen and Chang, Dongxia and Fu, Zhiqiang and Wang, Jiapeng and Wang, Yiming and Zhao, Yao},\n  journal={Neurocomputing},\n volume={526},\n pages={19–29},\n  year={2023}\n}"
+
+  },
+  {
     "title": "Dual-space co-training for large-scale multi-view clustering",
     "authors": "Zisen Kong, Zhiqiang Fu, Dongxia Chang<sup>#</sup>, Yiming Wang, Yao Zhao",
     "venue": "Pattern Recognition",
