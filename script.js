@@ -140,7 +140,9 @@ function renderFeaturedPublication(pub) {
   const authors = highlightAuthor(pub.authors || "");
   const venueClass = getVenueClass(pub);
   const ccfClass = getCcfClass(pub);
-  const jcrClass = pub.jcr ? `tag-jcr-${String(pub.jcr).toLowerCase()}` : "";
+  const ccfLabel = getRankLabel(pub.ccf, "CCF");
+  const jcrLabel = getRankLabel(pub.jcr);
+  const jcrClass = jcrLabel ? `tag-jcr-${String(jcrLabel).toLowerCase()}` : "";
 
   return `
     <article class="publication-card">
@@ -151,8 +153,8 @@ function renderFeaturedPublication(pub) {
         <div class="publication-meta">
           <span class="tag-venue ${venueClass}">${pub.venue || "Publication"}</span>
           <span class="tag-year">${pub.year || ""}</span>
-          ${pub.ccf ? `<span class="${ccfClass}">CCF-${pub.ccf}</span>` : ""}
-          ${pub.jcr ? `<span class="${jcrClass}">${pub.jcr}</span>` : ""}
+          ${ccfLabel ? `<span class="${ccfClass}">${ccfLabel}</span>` : ""}
+          ${jcrLabel ? `<span class="${jcrClass}">${jcrLabel}</span>` : ""}
         </div>
         <h3>${pub.title}</h3>
         <p class="publication-authors">${authors}</p>
@@ -168,7 +170,9 @@ function renderCompactPublication(pub) {
   const authors = highlightAuthor(pub.authors || "");
   const venueClass = getVenueClass(pub);
   const ccfClass = getCcfClass(pub);
-  const jcrClass = pub.jcr ? `tag-jcr-${String(pub.jcr).toLowerCase()}` : "";
+  const ccfLabel = getRankLabel(pub.ccf, "CCF");
+  const jcrLabel = getRankLabel(pub.jcr);
+  const jcrClass = jcrLabel ? `tag-jcr-${String(jcrLabel).toLowerCase()}` : "";
 
   return `
     <article class="compact-publication">
@@ -178,8 +182,8 @@ function renderCompactPublication(pub) {
         <div class="publication-meta compact-publication-meta">
           <span class="tag-venue ${venueClass}">${pub.venue || "Publication"}</span>
           ${pub.year ? `<span class="tag-year">${pub.year}</span>` : ""}
-          ${pub.ccf ? `<span class="${ccfClass}">CCF-${pub.ccf}</span>` : ""}
-          ${pub.jcr ? `<span class="${jcrClass}">${pub.jcr}</span>` : ""}
+          ${ccfLabel ? `<span class="${ccfClass}">${ccfLabel}</span>` : ""}
+          ${jcrLabel ? `<span class="${jcrClass}">${jcrLabel}</span>` : ""}
         </div>
       </div>
       ${renderPublicationLinks(pub, safeBibtex)}
@@ -261,6 +265,12 @@ function getCcfClass(pub) {
   if (ccf === "B") return "tag-ccf-B";
   if (ccf === "C") return "tag-ccf-C";
   return "tag-ccf-neutral";
+}
+
+function getRankLabel(value, prefix = "") {
+  const text = String(value || "").trim();
+  if (!text || text.toUpperCase() === "N/A") return "";
+  return prefix ? `${prefix}-${text}` : text;
 }
 
 async function loadHonors() {

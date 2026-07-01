@@ -388,6 +388,12 @@ section {
     border-color: #ddd6fe;
 }
 
+.publication-meta .tag-jcr-q3 {
+    color: #475569;
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+}
+
 .publication-card h3 {
     font-family: 'Inter', sans-serif;
     color: #1e293b;
