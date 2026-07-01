@@ -65,50 +65,85 @@
     "bibtex": "@article{kong2025local, \n  title={Local geometry-enhanced anchor learning for multi-view clustering},\n  author={Kong, Zisen and Fu, Zhiqiang and Chang, Dongxia and Wang, Yiming and Li, Pengyuan and Zhao, Yao},\n  journal={Neurocomputing},\n pages={131953},\n  year={2025}\n}"
 
   },
+<!-- 下面是单列的 -->
   {
-    "title": "The weight distribution of some irreducible cyclic codes",
-    "authors": "Yang Liu, Yang Zhang, Zisen Kong<sup>#</sup>",
-    "venue": "Discrete Mathematics, Algorithms and Applications",
-    "year": "2022",
+    "title": "Anchor-based Disentanglement Framework for Incremental Multi-view Clustering",
+    "authors": "Bo Zhong, Pengyuan Li, Zisen Kong, Dongxia Chang*, Yiming Wang, and~Yao Zhao",
+    "venue": "Neural Networks",
+    "year": "2026",
     "type": "journal",
-    "ccf": "N/A",
-    "jcr": "N/A",
+    "ccf": "B",
+    "jcr": "Q1",
     "image": "assets/publication/25_PR.png",
     "description": "We propose a simple yet effective dual-space co-training strategy for large-scale multi-view clustering.",
     "links": {
-      "pdf": "https://www.worldscientific.com/doi/abs/10.1142/S1793830921500920"
+      "pdf": "",
+      "code": ""
     }
-    
+  
+  },
+{
+    "title": "RCAlign: Revisiting Radar Camera Alignment by Contrastive Learning for 3D Object Detection",
+    "authors": "Linhua Kong, Dongxia Chang<sup>#</sup>, Lian Liu, Zisen Kong, Pengyuan Li, Yao Zhao",
+    "venue": "IEEE Transactions on Circuits and Systems for Video Technology",
+    "year": "2026",
+    "type": "journal",
+    "ccf": "B",
+    "jcr": "Q1",
+    "image": "assets/publication/25_PR.png",
+    "description": "We propose a simple yet effective dual-space co-training strategy for large-scale multi-view clustering.",
+    "links": {
+      "pdf": "https://ieeexplore.ieee.org/abstract/document/11523464",
+      "code": "https://github.com/guihaik/RCAlign"
+    }
+  
   },
   {
-    "title": "Projection-preserving block-diagonal low-rank representation for subspace clustering",
-    "authors": "Zisen Kong, Dongxia Chang<sup>#</sup>, Zhiqiang Fu, Jiapeng Wang, Yiming Wang, Yao Zhao",
+    "title": "Dual-space co-training for large-scale multi-view clustering",
+    "authors": "Zisen Kong, Zhiqiang Fu, Dongxia Chang<sup>#</sup>, Yiming Wang, Yao Zhao",
+    "venue": "Pattern Recognition",
+    "year": "2025",
+    "type": "journal",
+    "ccf": "B",
+    "jcr": "Q1",
+    "image": "assets/publication/25_PR.png",
+    "description": "We propose a simple yet effective dual-space co-training strategy for large-scale multi-view clustering.",
+    "links": {
+      "pdf": "https://www.sciencedirect.com/science/article/pii/S0031320325005047",
+      "code": "https://github.com/zskong/DSCMC/tree/main"
+    },
+    "bibtex": "@article{kong2025dual, \n  title={Dual-space Co-training for Large-scale Multi-view Clustering},\n  author={Kong, Zisen and Fu, Zhiqiang and Chang, Dongxia and Wang, Yiming and Zhao, Yao},\n  journal={Pattern Recognition},\n volume={168},\n pages={111844},\n  year={2025}\n}"
+
+  },
+   {
+    "title": "Bipartite contrastive multi-view clustering with singular value modulation",
+    "authors": "Teng Zhang, Pengyuan Li, Zisen Kong, Dongxia Chang, Yao Zhao",
     "venue": "Neurocomputing",
-    "year": "2023",
+    "year": "2025",
     "type": "journal",
     "ccf": "C",
     "jcr": "Q2",
     "image": "assets/publication/25_PR.png",
     "description": "We propose a simple yet effective dual-space co-training strategy for large-scale multi-view clustering.",
     "links": {
-      "pdf": "https://www.sciencedirect.com/science/article/pii/S0925231223000607",
-      "code": "https://github.com/zskong/PBDIR"
-    },
-    "bibtex": "@article{neucom2023, \n  title={Projection-preserving block-diagonal low-rank representation for subspace clustering},\n  author={Kong, Zisen and Chang, Dongxia and Fu, Zhiqiang and Wang, Jiapeng and Wang, Yiming and Zhao, Yao},\n  journal={Neurocomputing},\n volume={526},\n pages={19–29},\n  year={2023}\n}"
-
+      "pdf": "https://www.sciencedirect.com/science/article/abs/pii/S0925231225022003",
+      "code": "https://github.com/zhangt-make/BCMVC"
+    }
+    
   },
-  {
-    "title": "Interactive guidance network for object detection based on radar-camera fusion",
-    "authors": "Jiapeng Wang, Linhua Kong, Dongxia Chang<sup>#</sup>, Zisen Kong, Yao Zhao",
-    "venue": "Multimedia Tools and Applications",
-    "year": "2024",
+    {
+    "title": "DCMVC: Dual contrastive multi-view clustering",
+    "authors": "Pengyuan Li, Dongxia Chang<sup>#</sup>, Zisen Kong, Yiming Wang, Yao Zhao",
+    "venue": "Neurocomputing",
+    "year": "2025",
     "type": "journal",
     "ccf": "C",
-    "jcr": "Q3",
+    "jcr": "Q2",
     "image": "assets/publication/25_PR.png",
     "description": "We propose a simple yet effective dual-space co-training strategy for large-scale multi-view clustering.",
     "links": {
-      "pdf": "https://link.springer.com/article/10.1007/s11042-023-16574-5"
+      "pdf": "https://www.sciencedirect.com/science/article/abs/pii/S0925231225005612",
+      "code": "https://github.com/Lummer-Li/DCMVC"
     }
     
   },
@@ -129,85 +164,52 @@
     
   },
   {
-    "title": "DCMVC: Dual contrastive multi-view clustering",
-    "authors": "Pengyuan Li, Dongxia Chang<sup>#</sup>, Zisen Kong, Yiming Wang, Yao Zhao",
+    "title": "Interactive guidance network for object detection based on radar-camera fusion",
+    "authors": "Jiapeng Wang, Linhua Kong, Dongxia Chang<sup>#</sup>, Zisen Kong, Yao Zhao",
+    "venue": "Multimedia Tools and Applications",
+    "year": "2024",
+    "type": "journal",
+    "ccf": "C",
+    "jcr": "Q3",
+    "image": "assets/publication/25_PR.png",
+    "description": "We propose a simple yet effective dual-space co-training strategy for large-scale multi-view clustering.",
+    "links": {
+      "pdf": "https://link.springer.com/article/10.1007/s11042-023-16574-5"
+    }
+    
+  },
+ {
+    "title": "Projection-preserving block-diagonal low-rank representation for subspace clustering",
+    "authors": "Zisen Kong, Dongxia Chang<sup>#</sup>, Zhiqiang Fu, Jiapeng Wang, Yiming Wang, Yao Zhao",
     "venue": "Neurocomputing",
-    "year": "2025",
+    "year": "2023",
     "type": "journal",
     "ccf": "C",
     "jcr": "Q2",
     "image": "assets/publication/25_PR.png",
     "description": "We propose a simple yet effective dual-space co-training strategy for large-scale multi-view clustering.",
     "links": {
-      "pdf": "https://www.sciencedirect.com/science/article/abs/pii/S0925231225005612",
-      "code": "https://github.com/Lummer-Li/DCMVC"
-    }
-    
-  },
-   {
-    "title": "Bipartite contrastive multi-view clustering with singular value modulation",
-    "authors": "Teng Zhang, Pengyuan Li, Zisen Kong, Dongxia Chang, Yao Zhao",
-    "venue": "Neurocomputing",
-    "year": "2025",
-    "type": "journal",
-    "ccf": "C",
-    "jcr": "Q2",
-    "image": "assets/publication/25_PR.png",
-    "description": "We propose a simple yet effective dual-space co-training strategy for large-scale multi-view clustering.",
-    "links": {
-      "pdf": "https://www.sciencedirect.com/science/article/abs/pii/S0925231225022003",
-      "code": "https://github.com/zhangt-make/BCMVC"
-    }
-    
-  },
-  {
-    "title": "Dual-space co-training for large-scale multi-view clustering",
-    "authors": "Zisen Kong, Zhiqiang Fu, Dongxia Chang<sup>#</sup>, Yiming Wang, Yao Zhao",
-    "venue": "Pattern Recognition",
-    "year": "2025",
-    "type": "journal",
-    "ccf": "B",
-    "jcr": "Q1",
-    "image": "assets/publication/25_PR.png",
-    "description": "We propose a simple yet effective dual-space co-training strategy for large-scale multi-view clustering.",
-    "links": {
-      "pdf": "https://www.sciencedirect.com/science/article/pii/S0031320325005047",
-      "code": "https://github.com/zskong/DSCMC/tree/main"
+      "pdf": "https://www.sciencedirect.com/science/article/pii/S0925231223000607",
+      "code": "https://github.com/zskong/PBDIR"
     },
-    "bibtex": "@article{kong2025dual, \n  title={Dual-space Co-training for Large-scale Multi-view Clustering},\n  author={Kong, Zisen and Fu, Zhiqiang and Chang, Dongxia and Wang, Yiming and Zhao, Yao},\n  journal={Pattern Recognition},\n volume={168},\n pages={111844},\n  year={2025}\n}"
+    "bibtex": "@article{neucom2023, \n  title={Projection-preserving block-diagonal low-rank representation for subspace clustering},\n  author={Kong, Zisen and Chang, Dongxia and Fu, Zhiqiang and Wang, Jiapeng and Wang, Yiming and Zhao, Yao},\n  journal={Neurocomputing},\n volume={526},\n pages={19–29},\n  year={2023}\n}"
 
   },
-{
-    "title": "RCAlign: Revisiting Radar Camera Alignment by Contrastive Learning for 3D Object Detection",
-    "authors": "Linhua Kong, Dongxia Chang<sup>#</sup>, Lian Liu, Zisen Kong, Pengyuan Li, Yao Zhao",
-    "venue": "IEEE Transactions on Circuits and Systems for Video Technology",
-    "year": "2026",
+  
+  {
+    "title": "The weight distribution of some irreducible cyclic codes",
+    "authors": "Yang Liu, Yang Zhang, Zisen Kong<sup>#</sup>",
+    "venue": "Discrete Mathematics, Algorithms and Applications",
+    "year": "2022",
     "type": "journal",
-    "ccf": "B",
-    "jcr": "Q1",
+    "ccf": "N/A",
+    "jcr": "N/A",
     "image": "assets/publication/25_PR.png",
     "description": "We propose a simple yet effective dual-space co-training strategy for large-scale multi-view clustering.",
     "links": {
-      "pdf": "https://ieeexplore.ieee.org/abstract/document/11523464",
-      "code": "https://github.com/guihaik/RCAlign"
+      "pdf": "https://www.worldscientific.com/doi/abs/10.1142/S1793830921500920"
     }
-  
-  },
-
-{
-    "title": "Anchor-based Disentanglement Framework for Incremental Multi-view Clustering",
-    "authors": "Bo Zhong, Pengyuan Li, Zisen Kong, Dongxia Chang*, Yiming Wang, and~Yao Zhao",
-    "venue": "Neural Networks",
-    "year": "2026",
-    "type": "journal",
-    "ccf": "B",
-    "jcr": "Q1",
-    "image": "assets/publication/25_PR.png",
-    "description": "We propose a simple yet effective dual-space co-training strategy for large-scale multi-view clustering.",
-    "links": {
-      "pdf": "",
-      "code": ""
-    }
-  
+    
   }
+
 ]
