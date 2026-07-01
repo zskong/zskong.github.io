@@ -73,11 +73,13 @@
     "type": "journal",
     "ccf": "C",
     "jcr": "Q2",
+    "image": "assets/publication/25_PR.png",
+    "description": "We propose a simple yet effective dual-space co-training strategy for large-scale multi-view clustering.",
     "links": {
       "pdf": "https://www.sciencedirect.com/science/article/pii/S0925231223000607",
       "code": "https://github.com/zskong/PBDIR"
     },
-    "bibtex": "@article{10.1016/j.neucom.2023.01.051, \n  title={Projection-preserving block-diagonal low-rank representation for subspace clustering},\n  author={Kong, Zisen and Chang, Dongxia and Fu, Zhiqiang and Wang, Jiapeng and Wang, Yiming and Zhao, Yao},\n  journal={Neurocomputing},\n volume={526},\n pages={19–29},\n  year={2023}\n}"
+    "bibtex": "@article{neucom2023, \n  title={Projection-preserving block-diagonal low-rank representation for subspace clustering},\n  author={Kong, Zisen and Chang, Dongxia and Fu, Zhiqiang and Wang, Jiapeng and Wang, Yiming and Zhao, Yao},\n  journal={Neurocomputing},\n volume={526},\n pages={19–29},\n  year={2023}\n}"
 
   },
   {
