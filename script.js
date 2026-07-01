@@ -159,14 +159,13 @@ function renderFeaturedPublication(pub) {
         <h3>${pub.title}</h3>
         <p class="publication-authors">${authors}</p>
         ${pub.description ? `<p class="publication-description"><strong>TL;DR:</strong> ${pub.description}</p>` : ""}
-        ${renderPublicationLinks(pub, safeBibtex)}
+        ${renderPublicationLinks(pub, safeBibtex, true)}
       </div>
     </article>
   `;
 }
 
 function renderCompactPublication(pub) {
-  const safeBibtex = escapeAttribute(pub.bibtex || "No BibTeX provided.");
   const authors = highlightAuthor(pub.authors || "");
   const venueClass = getVenueClass(pub);
   const ccfClass = getCcfClass(pub);
@@ -186,12 +185,12 @@ function renderCompactPublication(pub) {
           ${jcrLabel ? `<span class="${jcrClass}">${jcrLabel}</span>` : ""}
         </div>
       </div>
-      ${renderPublicationLinks(pub, safeBibtex)}
+      ${renderPublicationLinks(pub)}
     </article>
   `;
 }
 
-function renderPublicationLinks(pub, safeBibtex) {
+function renderPublicationLinks(pub, safeBibtex = "", includeCite = false) {
   const pdfHref = pub.links && pub.links.pdf ? pub.links.pdf : "#";
   const codeHref = pub.links && pub.links.code ? pub.links.code : "#";
   const pdfClass = pdfHref === "#" ? "is-placeholder" : "";
@@ -201,7 +200,7 @@ function renderPublicationLinks(pub, safeBibtex) {
     <div class="publication-links">
       <a class="${pdfClass}" href="${pdfHref}" target="_blank" rel="noopener">Paper</a>
       <a class="${codeClass}" href="${codeHref}" target="_blank" rel="noopener">Code</a>
-      <button type="button" onclick="openBibtexModal(this)" data-bibtex="${safeBibtex}">Cite</button>
+      ${includeCite ? `<button type="button" onclick="openBibtexModal(this)" data-bibtex="${safeBibtex}">Cite</button>` : ""}
     </div>
   `;
 }
