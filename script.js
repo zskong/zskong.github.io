@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupMobileMenu();
   setupSmoothNavigation();
   setupBibtexModal();
+  setupPublicationImageLightbox();
   setCurrentYear();
 
   loadPublications();
@@ -18,6 +19,73 @@ function dataPath(fileName) {
   return isSubPage() ? `../data/${fileName}` : `data/${fileName}`;
 }
 
+function setupPublicationImageLightbox() {
+  const modal = document.createElement("div");
+  modal.id = "publication-image-lightbox";
+  modal.className = "publication-image-lightbox";
+  modal.setAttribute("aria-hidden", "true");
+  modal.setAttribute("role", "dialog");
+  modal.setAttribute("aria-modal", "true");
+  modal.innerHTML = `
+    <button type="button" class="publication-lightbox-close" aria-label="Close enlarged image">
+      <i class="fas fa-times" aria-hidden="true"></i>
+    </button>
+    <figure class="publication-lightbox-figure">
+      <img class="publication-lightbox-image" alt="">
+      <figcaption class="publication-lightbox-caption"></figcaption>
+    </figure>
+  `;
+  document.body.appendChild(modal);
+
+  const enlargedImage = modal.querySelector(".publication-lightbox-image");
+  const caption = modal.querySelector(".publication-lightbox-caption");
+  const closeButton = modal.querySelector(".publication-lightbox-close");
+  let lastTrigger = null;
+
+  const openLightbox = (trigger) => {
+    const image = trigger.querySelector("img");
+    if (!image) return;
+
+    lastTrigger = trigger;
+    enlargedImage.src = image.currentSrc || image.src;
+    enlargedImage.alt = image.alt;
+    caption.textContent = image.alt;
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("lightbox-open");
+    closeButton.focus();
+  };
+
+  const closeLightbox = () => {
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("lightbox-open");
+    enlargedImage.removeAttribute("src");
+    if (lastTrigger) lastTrigger.focus();
+  };
+
+  document.addEventListener("click", (event) => {
+    const trigger = event.target.closest(".publication-image-wrap");
+    if (trigger) {
+      openLightbox(trigger);
+      return;
+    }
+
+    if (event.target === modal || event.target.closest(".publication-lightbox-close")) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    const trigger = event.target.closest?.(".publication-image-wrap");
+    if (trigger && (event.key === "Enter" || event.key === " ")) {
+      event.preventDefault();
+      openLightbox(trigger);
+    } else if (event.key === "Escape" && modal.classList.contains("is-open")) {
+      closeLightbox();
+    }
+  });
+}
 function setupMobileMenu() {
   const button = document.querySelector(".mobile-menu-btn");
   const menu = document.getElementById("mobile-menu");
@@ -146,7 +214,7 @@ function renderFeaturedPublication(pub) {
 
   return `
     <article class="publication-card">
-      <div class="publication-image-wrap">
+      <div class="publication-image-wrap" role="button" tabindex="0" aria-label="Enlarge publication figure" title="Click to enlarge">
         <img src="${image}" alt="${escapeAttribute(pub.title)}" loading="lazy">
       </div>
       <div class="publication-body">

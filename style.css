@@ -296,20 +296,115 @@ section {
 }
 
 .publication-image-wrap {
-    width: 32%;
-    min-width: 230px;
-    aspect-ratio: 4 / 3;
+    width: 40%;
+    min-width: 290px;
+    aspect-ratio: 5 / 2;
     background: #f8fafc;
     border-right: 1px solid #e2e8f0;
+    padding: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .publication-image-wrap img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
 }
 
+.publication-image-wrap {
+    cursor: zoom-in;
+}
+
+.publication-image-wrap:focus-visible {
+    outline: 3px solid rgba(212, 165, 98, 0.75);
+    outline-offset: -3px;
+}
+
+.publication-image-wrap img {
+    transition: transform 0.2s ease;
+}
+
+.publication-image-wrap:hover img {
+    transform: scale(1.015);
+}
+
+body.lightbox-open {
+    overflow: hidden;
+}
+
+.publication-image-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: rgba(15, 23, 42, 0.88);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.publication-image-lightbox.is-open {
+    display: flex;
+}
+
+.publication-lightbox-figure {
+    max-width: min(94vw, 1600px);
+    margin: 0;
+    text-align: center;
+}
+
+.publication-lightbox-image {
+    width: auto;
+    max-width: 100%;
+    max-height: 86vh;
+    object-fit: contain;
+    border-radius: 6px;
+    background: #ffffff;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+}
+
+.publication-lightbox-caption {
+    margin-top: 0.75rem;
+    color: #f8fafc;
+    font-size: 0.9rem;
+}
+
+.publication-lightbox-close {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.65);
+    color: #ffffff;
+    font-size: 1.15rem;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.publication-lightbox-close:hover,
+.publication-lightbox-close:focus-visible {
+    background: #b88a4d;
+    transform: scale(1.06);
+    outline: none;
+}
+
+@media (max-width: 640px) {
+    .publication-image-lightbox {
+        padding: 1rem;
+    }
+
+    .publication-lightbox-image {
+        max-height: 80vh;
+    }
+}
 .publication-body {
     padding: 1.15rem;
     display: flex;
@@ -1021,5 +1116,6 @@ details summary {
         margin-top: 0.5rem;
     }
 }
+
 
 
