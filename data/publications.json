@@ -49,23 +49,22 @@
 
   },
   {
-    "title": "Local geometry-enhanced anchor learning for multi-view clustering",
-    "authors": "Zisen Kong, Zhiqiang Fu, Dongxia Chang<sup>#</sup>, Yiming Wang, Pengyuan Li, Yao Zhao",
-    "venue": "Neurocomputing",
-    "year": "2026",
+    "title": "Dual-space co-training for large-scale multi-view clustering",
+    "authors": "Zisen Kong, Zhiqiang Fu, Dongxia Chang<sup>#</sup>, Yiming Wang, Yao Zhao",
+    "venue": "Pattern Recognition",
+    "year": "2025",
     "type": "journal",
-    "ccf": "C",
-    "jcr": "Q2",
-    "image": "assets/publication/25_neu.png",
-    "description": "We propose a coarse-to-fine strategy for anchor representation learning.",
+    "ccf": "B",
+    "jcr": "Q1",
+    "image": "assets/publication/25_PR.png",
+    "description": "We propose a simple yet effective dual-space co-training strategy for large-scale multi-view clustering.",
     "links": {
-      "pdf": "https://www.sciencedirect.com/science/article/pii/S0925231225026256",
-      "code": "https://github.com/zskong/LEGAC"
+      "pdf": "https://www.sciencedirect.com/science/article/pii/S0031320325005047",
+      "code": "https://github.com/zskong/DSCMC/tree/main"
     },
-    "bibtex": "@article{kong2025local, \n  title={Local geometry-enhanced anchor learning for multi-view clustering},\n  author={Kong, Zisen and Fu, Zhiqiang and Chang, Dongxia and Wang, Yiming and Li, Pengyuan and Zhao, Yao},\n  journal={Neurocomputing},\n pages={131953},\n  year={2025}\n}"
+    "bibtex": "@article{kong2025dual, \n  title={Dual-space Co-training for Large-scale Multi-view Clustering},\n  author={Kong, Zisen and Fu, Zhiqiang and Chang, Dongxia and Wang, Yiming and Zhao, Yao},\n  journal={Pattern Recognition},\n volume={168},\n pages={111844},\n  year={2025}\n}"
 
   },
-
   {
     "title": "Anchor-based Disentanglement Framework for Incremental Multi-view Clustering",
     "authors": "Bo Zhong, Pengyuan Li, Zisen Kong, Dongxia Chang<sup>#</sup>, Yiming Wang, Yao Zhao",
@@ -98,23 +97,24 @@
     }
   
   },
-  {
-    "title": "Dual-space co-training for large-scale multi-view clustering",
-    "authors": "Zisen Kong, Zhiqiang Fu, Dongxia Chang<sup>#</sup>, Yiming Wang, Yao Zhao",
-    "venue": "Pattern Recognition",
-    "year": "2025",
+   {
+    "title": "Local geometry-enhanced anchor learning for multi-view clustering",
+    "authors": "Zisen Kong, Zhiqiang Fu, Dongxia Chang<sup>#</sup>, Yiming Wang, Pengyuan Li, Yao Zhao",
+    "venue": "Neurocomputing",
+    "year": "2026",
     "type": "journal",
-    "ccf": "B",
-    "jcr": "Q1",
-    "image": "assets/publication/25_PR.png",
-    "description": "We propose a simple yet effective dual-space co-training strategy for large-scale multi-view clustering.",
+    "ccf": "C",
+    "jcr": "Q2",
+    "image": "assets/publication/25_neu.png",
+    "description": "We propose a coarse-to-fine strategy for anchor representation learning.",
     "links": {
-      "pdf": "https://www.sciencedirect.com/science/article/pii/S0031320325005047",
-      "code": "https://github.com/zskong/DSCMC/tree/main"
+      "pdf": "https://www.sciencedirect.com/science/article/pii/S0925231225026256",
+      "code": "https://github.com/zskong/LEGAC"
     },
-    "bibtex": "@article{kong2025dual, \n  title={Dual-space Co-training for Large-scale Multi-view Clustering},\n  author={Kong, Zisen and Fu, Zhiqiang and Chang, Dongxia and Wang, Yiming and Zhao, Yao},\n  journal={Pattern Recognition},\n volume={168},\n pages={111844},\n  year={2025}\n}"
+    "bibtex": "@article{kong2025local, \n  title={Local geometry-enhanced anchor learning for multi-view clustering},\n  author={Kong, Zisen and Fu, Zhiqiang and Chang, Dongxia and Wang, Yiming and Li, Pengyuan and Zhao, Yao},\n  journal={Neurocomputing},\n pages={131953},\n  year={2025}\n}"
 
   },
+
    {
     "title": "Bipartite contrastive multi-view clustering with singular value modulation",
     "authors": "Teng Zhang, Pengyuan Li, Zisen Kong, Dongxia Chang<sup>#</sup>, Yao Zhao",
