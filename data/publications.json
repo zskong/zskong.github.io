@@ -10,10 +10,10 @@
     "image": "assets/publication/TMM_ATMCA.png",
     "description": "We propose a new method for addressing the anchor-unaligned problem (AUP).",
     "links": {
-      "pdf": "",
+      "pdf": "https://ieeexplore.ieee.org/document/11604136",
       "code": "https://github.com/zskong/ATMCA"
     },
-    "bibtex": "@article{kong2026tensorial, \n  title={Tensorial Multi-view Clustering via Alternative Rank Minimization and Inter-view Alignment},\n  author={Kong, Zisen and Chang, Dongxia and Wang, Yiming and Li, Pengyuan and Zhao, Yao},\n  journal={IEEE Transactions on Knowledge and Data Engineering},\n  year={2026}\n}"
+    "bibtex": "@article{11604136, \n  title={ATMCA: Augmented Tensorized Consensus Learning for Multi-view Clustering with Anchor-Aligned},\n  author={Kong, Zisen and Li, Pengyuan and Chang, Dongxia and Wang, Yiming and Zhao, Yao},\n  journal={IEEE Transactions on Multimedia},\n  year={2026}\n}"
   },
   {
     "title": "Tensorial Multi-view Clustering via Alternative Rank Minimization and Inter-view Alignment",
