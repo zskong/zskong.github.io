@@ -77,7 +77,7 @@
     "description": "We propose a simple yet effective dual-space co-training strategy for large-scale multi-view clustering.",
     "links": {
       "pdf": "https://www.sciencedirect.com/science/article/pii/S0893608026007872",
-      "code": ""
+      "code": "https://github.com/Bo-Zhong2025/ADIMC"
     }
   
   },
