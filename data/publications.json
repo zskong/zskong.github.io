@@ -66,6 +66,22 @@
 
   },
   {
+    "title": "ProMA: Progressive Multi-scale Anchor Learning for Incremental Multi-View Clustering",
+    "authors": "Bo Zhong, Zisen Kong, Pengyuan Li, Dongxia Chang<sup>#</sup>, Yiming Wang, Yao Zhao",
+    "venue": "IEEE Transactions on Multimedia",
+    "year": "2026",
+    "type": "journal",
+    "ccf": "A",
+    "jcr": "Q1",
+    "image": "assets/publication/25_PR.png",
+    "description": "We propose a simple yet effective dual-space co-training strategy for large-scale multi-view clustering.",
+    "links": {
+      "pdf": "",
+      "code": ""
+    }
+  
+  },
+  {
     "title": "Anchor-based Disentanglement Framework for Incremental Multi-view Clustering",
     "authors": "Bo Zhong, Pengyuan Li, Zisen Kong, Dongxia Chang<sup>#</sup>, Yiming Wang, Yao Zhao",
     "venue": "Neural Networks",
