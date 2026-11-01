@@ -13,7 +13,14 @@
       "pdf": "https://ieeexplore.ieee.org/document/11604136",
       "code": "https://github.com/zskong/ATMCA"
     },
-    "bibtex": "@article{11604136, \n  title={ATMCA: Augmented Tensorized Consensus Learning for Multi-view Clustering with Anchor-Aligned},\n  author={Kong, Zisen and Li, Pengyuan and Chang, Dongxia and Wang, Yiming and Zhao, Yao},\n  journal={IEEE Transactions on Multimedia},\n  year={2026}\n}"
+    "bibtex": "@ARTICLE{11604136,
+  author={Kong, Zisen and Li, Pengyuan and Chang, Dongxia and Wang, Yiming and Zhao, Yao},
+  journal={IEEE Transactions on Multimedia}, 
+  title={ATMCA: Augmented Tensorized Consensus Learning for Multi-View Clustering With Anchor-Aligned}, 
+  year={2026},
+  volume={28},
+  number={},
+  pages={11636-11647}}"
   },
   {
     "title": "Tensorial Multi-view Clustering via Alternative Rank Minimization and Inter-view Alignment",
